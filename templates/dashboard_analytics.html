@@ -338,6 +338,32 @@
       </div>
     </div>
 
+    <!-- Agent LLM - Pergunte aos Dados -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h4 class="section-title">
+          <i class="fas fa-robot me-2"></i>Agent IA - Pergunte aos Dados
+        </h4>
+        <div class="card">
+          <div class="card-body">
+            <div class="row g-2 mb-3">
+              <div class="col-12 col-lg-8">
+                <input id="agent-input" class="form-control" placeholder="ex.: quais páginas cresceram mais vs. 30 dias? foque em /classes" />
+              </div>
+              <div class="col-auto">
+                <button id="agent-send" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Perguntar
+                </button>
+              </div>
+            </div>
+            <div id="agent-summary" class="alert alert-info mb-3" style="display: none;"></div>
+            <div id="agent-chart" class="chart mb-3"></div>
+            <div id="agent-table" class="table-responsive"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Seções Especializadas dos CSVs -->
     
     <!-- Comparação de páginas/links -->
@@ -1171,6 +1197,251 @@
       draw();
       sel.onchange = (e) => draw(e.target.value);
     }
+
+    // ===== Agent LLM =====
+    async function askAgentLLM(q) {
+      const r = await fetch("/api/agent-llm", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({q})
+      });
+      if(!r.ok) { 
+        const errorText = await r.text();
+        throw new Error(`HTTP ${r.status}: ${errorText}`);
+      }
+      return r.json();
+    }
+
+    function renderAgent(resp) {
+      const sum = document.getElementById("agent-summary");
+      const ch = document.getElementById("agent-chart");
+      const tbl = document.getElementById("agent-table");
+      
+      // Limpar conteúdo anterior
+      sum.style.display = "none";
+      tbl.innerHTML = "";
+      Plotly.newPlot(ch, [], {margin: {t: 20}});
+
+      if (!resp.ok) {
+        sum.className = "alert alert-danger mb-3";
+        sum.textContent = `Erro: ${resp.error}`;
+        sum.style.display = "block";
+        return;
+      }
+
+      // Mostrar resumo
+      if (resp.summary) {
+        sum.className = "alert alert-info mb-3";
+        sum.textContent = resp.summary;
+        sum.style.display = "block";
+      }
+
+      const data = resp.data || [];
+      const chart = resp.chart;
+      const report = resp.report;
+
+      if (!data.length) {
+        tbl.innerHTML = "<div class='text-muted'>Sem dados para esta pergunta.</div>";
+        return;
+      }
+
+      // Renderizar tabela
+      const cols = Object.keys(data[0]);
+      let html = `<table class="table table-sm table-striped"><thead><tr>`;
+      cols.forEach(c => html += `<th>${c}</th>`);
+      html += `</tr></thead><tbody>`;
+      data.forEach(r => {
+        html += "<tr>";
+        cols.forEach(c => html += `<td>${r[c] ?? ""}</td>`);
+        html += "</tr>";
+      });
+      html += "</tbody></table>";
+      tbl.innerHTML = html;
+
+      // Renderizar gráfico baseado no tipo
+      if (report === "pages_top_compare") {
+        const y = data.map(r => r.page);
+        const x = data.map(r => +r.pageviews_cur || 0);
+        Plotly.newPlot(ch, [{
+          y, x, 
+          type: 'bar', 
+          orientation: 'h',
+          marker: { color: '#4285f4' }
+        }], {
+          margin: {t: 20}, 
+          yaxis: {automargin: true},
+          title: 'Páginas Mais Visitadas (Período Atual)'
+        });
+        return;
+      }
+
+      if (report === "first_user_acquisition") {
+        const y = data.map(r => `${r.source || "(not set)"}/${r.medium || "(not set)"}`);
+        const x = data.map(r => +r.users || 0);
+        Plotly.newPlot(ch, [{
+          y, x, 
+          type: 'bar', 
+          orientation: 'h',
+          marker: { color: '#34a853' }
+        }], {
+          margin: {t: 20}, 
+          yaxis: {automargin: true},
+          title: 'Primeiro Acesso por Fonte/Medium'
+        });
+        return;
+      }
+
+      if (report === "days_with_most_users") {
+        const x = data.map(r => r.date);
+        const y = data.map(r => +r.users || 0);
+        Plotly.newPlot(ch, [{
+          x, y, 
+          type: 'bar',
+          marker: { color: '#fbbc04' }
+        }], {
+          margin: {t: 20},
+          title: 'Dias com Mais Usuários'
+        });
+        return;
+      }
+
+      if (report === "weekday_heatmap") {
+        const weeks = Array.from(new Set(data.map(r => r.week))).sort((a,b) => a-b);
+        const days = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+        const Z = days.map(() => Array(weeks.length).fill(0));
+        data.forEach(r => {
+          const wi = weeks.indexOf(r.week);
+          const di = r.dow;
+          if (wi >= 0 && di >= 0) Z[di][wi] = +r.users || 0;
+        });
+        Plotly.newPlot(ch, [{
+          z: Z, 
+          x: weeks, 
+          y: days, 
+          type: 'heatmap',
+          colorscale: 'Blues'
+        }], {
+          margin: {t: 20},
+          title: 'Heatmap: Usuários por Dia da Semana'
+        });
+        return;
+      }
+
+      if (report.startsWith("video_") || report === "video_events") {
+        const agg = {};
+        data.forEach(r => { 
+          agg[r.event_name] = (agg[r.event_name] || 0) + (+r.event_count || 0); 
+        });
+        const ord = ["video_start","video_progress","video_complete"].filter(k => agg[k] != null);
+        Plotly.newPlot(ch, [{
+          x: ord, 
+          y: ord.map(k => agg[k] || 0), 
+          type: 'bar',
+          marker: { color: ['#4285f4', '#34a853', '#fbbc04'] }
+        }], {
+          margin: {t: 20},
+          title: 'Funil de Conversão de Vídeo'
+        });
+        return;
+      }
+
+      if (chart === "lines" && data[0].date) {
+        const x = data.map(r => r.date);
+        const users = data.map(r => +r.users || 0);
+        const sessions = data.map(r => +r.sessions || 0);
+        const pageviews = data.map(r => +r.pageviews || 0);
+        Plotly.newPlot(ch, [
+          {x, y: users, type: 'scatter', mode: 'lines+markers', name: 'Usuários', line: {color: '#4285f4'}},
+          {x, y: sessions, type: 'scatter', mode: 'lines+markers', name: 'Sessões', line: {color: '#34a853'}},
+          {x, y: pageviews, type: 'scatter', mode: 'lines+markers', name: 'Pageviews', line: {color: '#fbbc04'}}
+        ], {
+          margin: {t: 20}, 
+          legend: {orientation: 'h'},
+          title: 'Evolução Temporal das Métricas'
+        });
+        return;
+      }
+
+      if (report.endsWith("_compare")) {
+        const r = data[0];
+        const metric = r.metric || report.replace("_compare", "");
+        const cur = +r.cur || 0;
+        const prev = +r.prev || 0;
+        const diff = cur - prev;
+        const pct = prev > 0 ? (diff / prev * 100) : 0;
+        
+        Plotly.newPlot(ch, [{
+          x: ['Período Anterior', 'Período Atual'],
+          y: [prev, cur],
+          type: 'bar',
+          marker: { 
+            color: ['#dc3545', '#28a745'],
+            text: [`${prev}`, `${cur} (${pct > 0 ? '+' : ''}${pct.toFixed(1)}%)`],
+            textposition: 'auto'
+          }
+        }], {
+          margin: {t: 20},
+          title: `Comparação: ${metric}`
+        });
+        return;
+      }
+    }
+
+    // Event listener para o Agent
+    document.getElementById("agent-send").onclick = async () => {
+      const q = (document.getElementById("agent-input").value || "").trim();
+      if (!q) return;
+      
+      try {
+        // Mostrar loading
+        const btn = document.getElementById("agent-send");
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando...';
+        btn.disabled = true;
+        
+        const resp = await askAgentLLM(q);
+        
+        // Restaurar botão
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        
+        if (!resp.ok) throw new Error(resp.error || "Erro desconhecido");
+        
+        // Renderizar resposta
+        renderAgent({
+          ok: true,
+          summary: resp.summary,
+          chart: resp.chart,
+          report: (resp.plan?.reports?.[0] || ""),
+          data: (resp.data?.[resp.plan?.reports?.[0]] || [])
+        });
+        
+        // Log da operação
+        if (window.statusSystem) {
+          window.statusSystem.log('success', `Agent respondeu: "${q}" usando modelo ${resp.model}`);
+        }
+        
+      } catch(e) {
+        console.error(e);
+        alert(`Erro no Agent: ${e.message}`);
+        
+        // Restaurar botão em caso de erro
+        const btn = document.getElementById("agent-send");
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Perguntar';
+        btn.disabled = false;
+        
+        if (window.statusSystem) {
+          window.statusSystem.log('error', `Erro no Agent: ${e.message}`);
+        }
+      }
+    };
+
+    // Permitir Enter no input
+    document.getElementById("agent-input").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        document.getElementById("agent-send").click();
+      }
+    });
 
     // Sistema de status integrado - os botões agora usam onclick diretamente
   </script>

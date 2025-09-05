@@ -15,6 +15,7 @@ from src.ai_analyzer import AIAnalyzer
 from src.email_sender import EmailSender
 from src.slack_client import SlackClient
 from src.automation import AutomationManager
+from src.agent_llm import ask_llm
 from config.settings import FLASK_SECRET_KEY, FLASK_DEBUG, FLASK_HOST, FLASK_PORT
 
 app = Flask(__name__)
@@ -678,6 +679,23 @@ def test_connection():
             'success': False,
             'error': str(e)
         })
+
+@app.route('/api/agent-llm', methods=['POST'])
+def api_agent_llm():
+    """API para Agent com LLM via OpenRouter"""
+    try:
+        payload = request.get_json(silent=True) or {}
+        q = (payload.get("q") or "").strip()
+        if not q:
+            return jsonify({"ok": False, "error": "Pergunta vazia."}), 400
+        
+        resp = ask_llm(q)
+        return jsonify(resp), (200 if resp.get("ok") else 500)
+    except Exception as e:
+        return jsonify({
+            "ok": False,
+            "error": f"Erro interno do Agent: {str(e)}"
+        }), 500
 
 if __name__ == '__main__':
     print("🚀 Iniciando Dashboard GA4...")
