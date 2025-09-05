@@ -1,0 +1,1178 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <title>Dashboard GA4 - Análise Avançada</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Plotly -->
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  <!-- Sistema de Status -->
+  <script src="{{ url_for('static', filename='js/status_system.js') }}"></script>
+  <style>
+    body { 
+      background-color: #f8f9fa; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar-brand {
+      font-weight: 600;
+      color: #4285f4 !important;
+    }
+    .kpi-card { 
+      min-height: 120px; 
+      border: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    .kpi-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+    .kpi-label {
+      color: #6c757d;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .kpi-delta {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .delta-positive { color: #28a745; }
+    .delta-negative { color: #dc3545; }
+    .delta-neutral { color: #6c757d; }
+    
+    .chart { 
+      min-height: 400px; 
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .section-title { 
+      margin-top: 32px; 
+      margin-bottom: 16px; 
+      color: #2c3e50;
+      font-weight: 600;
+      border-bottom: 2px solid #4285f4;
+      padding-bottom: 8px;
+    }
+    .card {
+      border: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .card-header {
+      background: linear-gradient(135deg, #4285f4, #34a853);
+      color: white;
+      border: none;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #4285f4, #34a853);
+      border: none;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #3367d6, #2d8f47);
+    }
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #6c757d;
+    }
+    .error {
+      color: #dc3545;
+      background: #f8d7da;
+      padding: 12px;
+      border-radius: 4px;
+      margin: 16px 0;
+    }
+    .success {
+      color: #155724;
+      background: #d4edda;
+      padding: 12px;
+      border-radius: 4px;
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-chart-line me-2"></i>Dashboard GA4 - Análise Avançada
+      </a>
+      <div class="navbar-nav ms-auto">
+        <button class="btn btn-outline-primary btn-sm me-2" onclick="statusSystem.checkConnection()">
+          <i class="fas fa-wifi"></i> Testar Conexão
+        </button>
+        <button class="btn btn-primary btn-sm" onclick="refreshAll()">
+          <i class="fas fa-sync-alt"></i> Atualizar
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid mt-4">
+    
+    <!-- Filtros -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-md-3">
+                <label class="form-label fw-bold">Período de Análise</label>
+                <select id="days" class="form-select">
+                  <option value="7">Últimos 7 dias</option>
+                  <option value="14">Últimos 14 dias</option>
+                  <option value="30" selected>Últimos 30 dias</option>
+                  <option value="60">Últimos 60 dias</option>
+                  <option value="90">Últimos 90 dias</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label fw-bold">Comparação</label>
+                <select id="comparison" class="form-select">
+                  <option value="previous">Período Anterior</option>
+                  <option value="same-last-year">Mesmo Período Ano Passado</option>
+                  <option value="none">Sem Comparação</option>
+                </select>
+              </div>
+              <div class="col-md-6 d-flex align-items-end gap-2">
+                <button id="refresh" class="btn btn-primary btn-lg">
+                  <i class="fas fa-sync-alt"></i> Atualizar Dashboard
+                </button>
+                <button id="refresh-csv" class="btn btn-outline-success btn-lg" onclick="statusSystem.generateCSV()">
+                  <i class="fas fa-download"></i> Gerar CSVs
+                </button>
+                <button id="load-from-csv" class="btn btn-outline-warning btn-lg" onclick="statusSystem.loadData()">
+                  <i class="fas fa-chart-bar"></i> Carregar dos CSVs
+                </button>
+                <button id="download-zip" class="btn btn-outline-info btn-lg">
+                  <i class="fas fa-file-archive"></i> Baixar ZIP
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha 1: KPIs com Variação -->
+    <div class="row g-4 mb-4">
+      <div class="col-12">
+        <h4 class="section-title">
+          <i class="fas fa-tachometer-alt me-2"></i>Métricas Principais
+        </h4>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="card kpi-card">
+          <div class="card-body text-center">
+            <div class="kpi-label">Usuários</div>
+            <div id="kpi-users" class="kpi-value">—</div>
+            <div id="kpi-users-delta" class="kpi-delta"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="card kpi-card">
+          <div class="card-body text-center">
+            <div class="kpi-label">Sessões</div>
+            <div id="kpi-sessions" class="kpi-value">—</div>
+            <div id="kpi-sessions-delta" class="kpi-delta"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="card kpi-card">
+          <div class="card-body text-center">
+            <div class="kpi-label">Page Views</div>
+            <div id="kpi-views" class="kpi-value">—</div>
+            <div id="kpi-views-delta" class="kpi-delta"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="card kpi-card">
+          <div class="card-body text-center">
+            <div class="kpi-label">Duração Média</div>
+            <div id="kpi-duration" class="kpi-value">—</div>
+            <div class="kpi-delta">segundos</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="card kpi-card">
+          <div class="card-body text-center">
+            <div class="kpi-label">Taxa de Rejeição</div>
+            <div id="kpi-bounce" class="kpi-value">—</div>
+            <div class="kpi-delta">%</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="card kpi-card">
+          <div class="card-body text-center">
+            <div class="kpi-label">Taxa de Conversão</div>
+            <div id="kpi-conversion" class="kpi-value">—</div>
+            <div class="kpi-delta">%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha 2: Tendência Temporal -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h4 class="section-title">
+          <i class="fas fa-chart-line me-2"></i>Tendência Temporal
+        </h4>
+        <div class="card">
+          <div class="card-body">
+            <div id="ts-chart" class="chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha 3: Aquisição vs Dispositivos -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h4 class="section-title">
+          <i class="fas fa-users me-2"></i>Aquisição & Dispositivos
+        </h4>
+      </div>
+      <div class="col-lg-7">
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-funnel-dollar me-2"></i>Primeiro Acesso (Source/Medium)
+          </div>
+          <div class="card-body">
+            <div id="acq-chart" class="chart"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-mobile-alt me-2"></i>Dispositivos
+          </div>
+          <div class="card-body">
+            <div id="device-chart" class="chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha 4: Top Páginas vs Funil Vídeo -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h4 class="section-title">
+          <i class="fas fa-file-alt me-2"></i>Páginas & Vídeo
+        </h4>
+      </div>
+      <div class="col-lg-7">
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-fire me-2"></i>Páginas Mais Visitadas
+          </div>
+          <div class="card-body">
+            <div id="pages-chart" class="chart"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-play-circle me-2"></i>Análise de Vídeo
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label">Selecionar Vídeo:</label>
+              <select id="video-title" class="form-select">
+                <option value="__all__">Todos os Vídeos</option>
+              </select>
+            </div>
+            <div id="video-funnel" class="chart" style="height:200px;"></div>
+            <div id="video-ts" class="chart" style="height:200px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha 5: Análise Avançada -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h4 class="section-title">
+          <i class="fas fa-brain me-2"></i>Análise Avançada
+        </h4>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-clock me-2"></i>Horários de Pico
+          </div>
+          <div class="card-body">
+            <div id="hourly-chart" class="chart"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-calendar-week me-2"></i>Padrões Semanais
+          </div>
+          <div class="card-body">
+            <div id="weekly-chart" class="chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seções Especializadas dos CSVs -->
+    
+    <!-- Comparação de páginas/links -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h4 class="section-title">
+          <i class="fas fa-link me-2"></i>Páginas (Comparação por Link)
+        </h4>
+      </div>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="pages-compare-table" class="table-responsive"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Primeiro acesso -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h4 class="section-title">
+          <i class="fas fa-user-plus me-2"></i>Primeiro Acesso (Source/Medium/Campaign)
+        </h4>
+      </div>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="first-user-table" class="table-responsive"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dias com mais usuários -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h4 class="section-title">
+          <i class="fas fa-calendar-day me-2"></i>Dias com Mais Usuários
+        </h4>
+      </div>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="days-top-chart" class="chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Heatmap por dia da semana -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h4 class="section-title">
+          <i class="fas fa-calendar-week me-2"></i>Heatmap — Dia da Semana × Semana
+        </h4>
+      </div>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="weekday-heatmap" class="chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vídeo (dos CSVs) -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h4 class="section-title">
+          <i class="fas fa-video me-2"></i>Vídeo (via CSV)
+        </h4>
+      </div>
+      <div class="col-12 col-lg-5">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0">Funil</h6>
+              <select id="video-title-csv" class="form-select" style="max-width: 280px;"></select>
+            </div>
+            <div id="video-funnel-csv" class="chart" style="height:280px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-7">
+        <div class="card">
+          <div class="card-body">
+            <h6>Evolução Temporal</h6>
+            <div id="video-ts-csv" class="chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status e Alertas -->
+    <div id="status-container"></div>
+
+  </div>
+
+  <script>
+    const fmt = new Intl.NumberFormat('pt-BR');
+    let currentData = {};
+
+    // Função para formatar números
+    function formatNumber(num) {
+      if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + 'M';
+      } else if (num >= 1000) {
+        return (num / 1000).toFixed(1) + 'K';
+      }
+      return num.toString();
+    }
+
+    // Função para calcular variação percentual
+    function computeDelta(current, previous) {
+      if (previous === 0) return null;
+      return ((current - previous) / previous) * 100.0;
+    }
+
+    // Função para mostrar alertas
+    function showAlert(message, type = 'info') {
+      console.log(`📢 Alert: ${message} (${type})`);
+      const container = document.getElementById('status-container');
+      if (!container) {
+        console.error('❌ Container de status não encontrado!');
+        return;
+      }
+      
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+      alertDiv.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+      container.appendChild(alertDiv);
+      
+      // Auto-remove após 5 segundos
+      setTimeout(() => {
+        if (alertDiv.parentNode) {
+          alertDiv.remove();
+        }
+      }, 5000);
+    }
+
+    // Função para fazer requisições
+    async function fetchJson(url) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        return await response.json();
+      } catch (error) {
+        console.error(`Erro ao buscar ${url}:`, error);
+        throw error;
+      }
+    }
+
+    // Função para carregar todos os dados
+    async function loadAll(days) {
+      try {
+        showAlert('🔄 Carregando dados...', 'info');
+        console.log('🔄 Iniciando carregamento de dados...');
+        
+        // Chamadas em paralelo para melhor performance
+        const [
+          metrics,
+          daily,
+          pages,
+          devices,
+          acquisition,
+          video
+        ] = await Promise.all([
+          fetchJson(`/api/metrics?days=${days}`),
+          fetchJson(`/api/daily-chart?days=${days * 2}`), // 2x para calcular delta
+          fetchJson(`/api/top-pages?days=${days}&limit=25`),
+          fetchJson(`/api/device-breakdown?days=${days}`),
+          fetchJson(`/api/first-user-acquisition?days=${days}`),
+          fetchJson(`/api/video-events?days=${days}`)
+        ]);
+
+        console.log('📊 Dados recebidos:', { metrics, daily, pages, devices, acquisition, video });
+        currentData = { metrics, daily, pages, devices, acquisition, video };
+        
+        // Atualizar KPIs
+        console.log('📈 Atualizando KPIs...');
+        updateKPIs(metrics, daily, days);
+        
+        // Atualizar gráficos
+        console.log('📊 Atualizando gráficos...');
+        updateTimeSeries(daily, days);
+        updateAcquisitionChart(acquisition);
+        updateDeviceChart(devices);
+        updatePagesChart(pages);
+        updateVideoCharts(video);
+        
+        showAlert('✅ Dashboard atualizado com sucesso!', 'success');
+        console.log('✅ Dashboard atualizado com sucesso!');
+        
+      } catch (error) {
+        console.error('❌ Erro ao carregar dados:', error);
+        showAlert(`❌ Erro ao carregar dados: ${error.message}`, 'danger');
+      }
+    }
+
+    // Atualizar KPIs
+    function updateKPIs(metrics, daily, days) {
+      console.log('📊 Atualizando KPIs com dados:', metrics);
+      
+      // Valores principais
+      const users = metrics.data?.totalUsers || 0;
+      const sessions = metrics.data?.sessions || 0;
+      const views = metrics.data?.screenPageViews || 0;
+      const duration = metrics.data?.averageSessionDuration || 0;
+      const bounce = metrics.data?.bounceRate || 0;
+      
+      console.log(`📈 Valores: Usuários=${users}, Sessões=${sessions}, Views=${views}, Duração=${duration}, Rejeição=${bounce}`);
+      
+      document.getElementById('kpi-users').textContent = formatNumber(users);
+      document.getElementById('kpi-sessions').textContent = formatNumber(sessions);
+      document.getElementById('kpi-views').textContent = formatNumber(views);
+      document.getElementById('kpi-duration').textContent = Math.round(duration);
+      document.getElementById('kpi-bounce').textContent = bounce.toFixed(1);
+      
+      // Calcular taxa de conversão simulada
+      const conversionRate = (sessions * 0.02).toFixed(1);
+      document.getElementById('kpi-conversion').textContent = conversionRate;
+
+      // Calcular deltas usando série diária
+      if (Array.isArray(daily) && daily.length >= days * 2) {
+        const data = daily;
+        
+        // Dividir em duas metades para comparação
+        const mid = Math.floor(data.length / 2);
+        const prev = data.slice(0, mid);
+        const curr = data.slice(mid);
+        
+        // Calcular totais
+        const prevUsers = prev.reduce((sum, d) => sum + (d.users || 0), 0);
+        const currUsers = curr.reduce((sum, d) => sum + (d.users || 0), 0);
+        const deltaUsers = computeDelta(currUsers, prevUsers);
+        updateDeltaDisplay('kpi-users-delta', deltaUsers);
+        
+        const prevSessions = prev.reduce((sum, d) => sum + (d.sessions || 0), 0);
+        const currSessions = curr.reduce((sum, d) => sum + (d.sessions || 0), 0);
+        const deltaSessions = computeDelta(currSessions, prevSessions);
+        updateDeltaDisplay('kpi-sessions-delta', deltaSessions);
+        
+        const prevViews = prev.reduce((sum, d) => sum + (d.pageviews || 0), 0);
+        const currViews = curr.reduce((sum, d) => sum + (d.pageviews || 0), 0);
+        const deltaViews = computeDelta(currViews, prevViews);
+        updateDeltaDisplay('kpi-views-delta', deltaViews);
+      }
+    }
+
+    // Atualizar display de delta
+    function updateDeltaDisplay(elementId, delta) {
+      const element = document.getElementById(elementId);
+      if (delta === null) {
+        element.textContent = '';
+        element.className = 'kpi-delta delta-neutral';
+      } else {
+        const sign = delta >= 0 ? '+' : '';
+        element.textContent = `${sign}${delta.toFixed(1)}% vs período anterior`;
+        element.className = `kpi-delta ${delta >= 0 ? 'delta-positive' : 'delta-negative'}`;
+      }
+    }
+
+    // Atualizar série temporal
+    function updateTimeSeries(daily, days) {
+      console.log('📈 Atualizando série temporal com dados:', daily);
+      
+      // PATCH: Agora daily é um array direto (não tem .success e .data)
+      if (Array.isArray(daily) && daily.length > 0) {
+        const data = daily;
+        
+        // Criar gráfico com Plotly
+        const traceU = {
+          x: data.map(d => d.date),
+          y: data.map(d => d.users || 0),
+          type: 'scatter',
+          mode: 'lines+markers',
+          name: 'Usuários',
+          line: { color: '#4285f4', width: 3 }
+        };
+        
+        const traceS = {
+          x: data.map(d => d.date),
+          y: data.map(d => d.sessions || 0),
+          type: 'scatter',
+          mode: 'lines+markers',
+          name: 'Sessões',
+          line: { color: '#34a853', width: 3 }
+        };
+        
+        const traceV = {
+          x: data.map(d => d.date),
+          y: data.map(d => d.pageviews || 0),
+          type: 'scatter',
+          mode: 'lines+markers',
+          name: 'Page Views',
+          line: { color: '#fbbc04', width: 3 }
+        };
+        
+        Plotly.newPlot('ts-chart', [traceU, traceS, traceV], {
+          title: `Atividade dos Últimos ${days} Dias`,
+          xaxis: { title: 'Data' },
+          yaxis: { title: 'Quantidade' },
+          hovermode: 'x unified',
+          template: 'plotly_white',
+          margin: { t: 40, r: 50, b: 50, l: 50 },
+          legend: { orientation: 'h', y: -0.1 }
+        });
+        
+        console.log('✅ Gráfico temporal criado com sucesso!');
+      } else {
+        console.error('❌ Dados de série temporal inválidos:', daily);
+      }
+    }
+
+    // Atualizar gráfico de aquisição
+    function updateAcquisitionChart(acquisition) {
+      if (Array.isArray(acquisition)) {
+        const bySource = {};
+        acquisition.forEach(r => {
+          const key = `${r.source || '(not set)'} / ${r.medium || '(not set)'}`;
+          bySource[key] = (bySource[key] || 0) + (r.users || 0);
+        });
+        
+        const pairs = Object.entries(bySource)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 20);
+        
+        Plotly.newPlot('acq-chart', [{
+          y: pairs.map(p => p[0]),
+          x: pairs.map(p => p[1]),
+          type: 'bar',
+          orientation: 'h',
+          marker: { color: '#4285f4' }
+        }], {
+          title: 'Usuários por Fonte/Meio',
+          margin: { t: 40, r: 50, b: 50, l: 200 },
+          xaxis: { title: 'Usuários' },
+          yaxis: { automargin: true }
+        });
+      }
+    }
+
+    // Atualizar gráfico de dispositivos
+    function updateDeviceChart(devices) {
+      if (devices.success && devices.data) {
+        const data = devices.data;
+        Plotly.newPlot('device-chart', [{
+          labels: data.map(d => d.device),
+          values: data.map(d => d.users || 0),
+          type: 'pie',
+          hole: 0.4,
+          marker: { colors: ['#4285f4', '#34a853', '#fbbc04'] }
+        }], {
+          title: 'Usuários por Dispositivo',
+          margin: { t: 40, r: 50, b: 50, l: 50 }
+        });
+      }
+    }
+
+    // Atualizar gráfico de páginas
+    function updatePagesChart(pages) {
+      if (pages.success && pages.data) {
+        const topPages = pages.data.slice(0, 25);
+        Plotly.newPlot('pages-chart', [{
+          y: topPages.map(p => p.page_title || p.page_path || 'Página'),
+          x: topPages.map(p => p.pageviews || 0),
+          type: 'bar',
+          orientation: 'h',
+          marker: { color: '#34a853' }
+        }], {
+          title: 'Page Views por Página',
+          margin: { t: 40, r: 50, b: 50, l: 200 },
+          xaxis: { title: 'Page Views' },
+          yaxis: { automargin: true }
+        });
+      }
+    }
+
+    // Atualizar gráficos de vídeo
+    function updateVideoCharts(video) {
+      if (Array.isArray(video)) {
+        // Atualizar seletor de vídeos
+        const titles = Array.from(new Set(video.map(v => v.video_title).filter(Boolean)));
+        const selector = document.getElementById('video-title');
+        selector.innerHTML = '<option value="__all__">Todos os Vídeos</option>';
+        titles.forEach(title => {
+          const option = document.createElement('option');
+          option.value = title;
+          option.textContent = title;
+          selector.appendChild(option);
+        });
+        
+        // Renderizar gráficos iniciais
+        renderVideoCharts('__all__');
+        
+        // Adicionar event listener
+        selector.onchange = (e) => renderVideoCharts(e.target.value);
+      }
+    }
+
+    // Renderizar gráficos de vídeo
+    function renderVideoCharts(titleVal = '__all__') {
+      if (!currentData.video) return;
+      
+      let videoData = currentData.video.slice();
+      if (titleVal !== '__all__') {
+        videoData = videoData.filter(v => v.video_title === titleVal);
+      }
+      
+      // Funil agregado
+      const agg = {};
+      videoData.forEach(v => {
+        agg[v.event_name] = (agg[v.event_name] || 0) + (v.event_count || 0);
+      });
+      
+      const stages = ['video_start', 'video_progress', 'video_complete'].filter(s => agg[s] != null);
+      
+      Plotly.newPlot('video-funnel', [{
+        x: stages,
+        y: stages.map(s => agg[s] || 0),
+        type: 'bar',
+        text: stages.map(s => agg[s] || 0),
+        textposition: 'auto',
+        marker: { color: '#fbbc04' }
+      }], {
+        title: 'Funil de Vídeo',
+        margin: { t: 40, r: 50, b: 50, l: 50 },
+        xaxis: { title: 'Evento' },
+        yaxis: { title: 'Quantidade' }
+      });
+      
+      // Timeline por evento
+      const byDateEvent = {};
+      videoData.forEach(v => {
+        const k = `${v.event_name}|${v.date}`;
+        byDateEvent[k] = (byDateEvent[k] || 0) + (v.event_count || 0);
+      });
+      
+      const seriesMap = {};
+      Object.entries(byDateEvent).forEach(([k, val]) => {
+        const [ename, date] = k.split('|');
+        if (!seriesMap[ename]) {
+          seriesMap[ename] = {
+            x: [], y: [], 
+            type: 'scatter', 
+            mode: 'lines+markers', 
+            name: ename
+          };
+        }
+        seriesMap[ename].x.push(date);
+        seriesMap[ename].y.push(val);
+      });
+      
+      Plotly.newPlot('video-ts', Object.values(seriesMap), {
+        title: 'Evolução dos Eventos',
+        margin: { t: 40, r: 50, b: 50, l: 50 },
+        legend: { orientation: 'h', y: -0.1 }
+      });
+    }
+
+    // Função para testar conexão
+    async function testConnection() {
+      try {
+        const result = await fetchJson('/api/test-connection');
+        if (result.success) {
+          showAlert('✅ Conexão com GA4 estabelecida com sucesso!', 'success');
+        } else {
+          showAlert('❌ Falha na conexão com GA4', 'danger');
+        }
+      } catch (error) {
+        showAlert(`❌ Erro ao testar conexão: ${error.message}`, 'danger');
+      }
+    }
+
+    // Função para atualizar tudo
+    async function refreshAll() {
+      const days = parseInt(document.getElementById('days').value, 10);
+      await loadAll(days);
+    }
+
+    // Função para gerar CSVs (versão simplificada para debug)
+    async function refreshCsvs(days) {
+      const btn = document.getElementById('refresh-csv');
+      const oldText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gerando...';
+
+      try {
+        console.log('🔄 Iniciando geração de CSVs...');
+        
+        // Chama o backend para gerar CSVs e Parquets
+        const response = await fetch(`/api/refresh-data?days=${days}`, { 
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        console.log('📡 Response status:', response.status);
+        
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`HTTP ${response.status}: ${errorText}`);
+        }
+        
+        const result = await response.json();
+        console.log('📊 Resultado do refresh:', result);
+        
+        if (result.success) {
+          // Mostra mensagem de sucesso com links para download
+          if (result.files && result.files.length > 0) {
+            const filesList = result.files.map(name => 
+              `<a href="/download/${name}" class="btn btn-sm btn-outline-primary me-2" target="_blank">${name}</a>`
+            ).join('');
+            
+            // Usar alert simples em vez de showAlert para debug
+            alert(`✅ Dados atualizados com sucesso!\n\nArquivos gerados:\n${result.files.join(', ')}\n\nAtualizado em: ${result.refreshed_at}`);
+            
+            // Tentar atualizar os gráficos (opcional)
+            try {
+              await loadAll(days);
+              console.log('✅ Gráficos atualizados com sucesso');
+            } catch (loadError) {
+              console.warn('⚠️ Erro ao atualizar gráficos:', loadError);
+            }
+          } else {
+            alert('✅ Dados atualizados, mas nenhum arquivo CSV foi gerado.');
+          }
+        } else {
+          throw new Error(result.message || 'Erro desconhecido');
+        }
+        
+      } catch (error) {
+        console.error('❌ Erro ao gerar CSVs:', error);
+        alert(`❌ Falha ao gerar CSVs: ${error.message}`);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = oldText;
+      }
+    }
+
+    // Função para baixar ZIP
+    async function downloadZip() {
+      const btn = document.getElementById('download-zip');
+      const oldText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gerando...';
+
+      try {
+        console.log('📦 Gerando ZIP...');
+        
+        const response = await fetch('/api/zip-data');
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Erro ao gerar ZIP');
+        }
+        
+        // Criar link de download
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'ga4_exports.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+        
+        showAlert('✅ ZIP baixado com sucesso!', 'success');
+        
+      } catch (error) {
+        console.error('❌ Erro ao baixar ZIP:', error);
+        showAlert(`❌ Falha ao baixar ZIP: ${error.message}`, 'danger');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = oldText;
+      }
+    }
+
+    // Inicialização
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('🚀 DOM carregado, iniciando dashboard...');
+      try {
+        refreshAll();
+      } catch (error) {
+        console.error('❌ Erro na inicialização:', error);
+        showAlert('❌ Erro na inicialização: ' + error.message, 'danger');
+      }
+    });
+
+    // Event listeners
+    document.getElementById('refresh').onclick = function() {
+      console.log('🔄 Botão atualizar clicado');
+      refreshAll();
+    };
+    
+    document.getElementById('refresh-csv').onclick = function() {
+      console.log('📊 Botão gerar CSVs clicado');
+      const days = parseInt(document.getElementById('days').value, 10);
+      refreshCsvs(days);
+    };
+    
+    document.getElementById('download-zip').onclick = function() {
+      console.log('📦 Botão baixar ZIP clicado');
+      downloadZip();
+    };
+    
+    document.getElementById('days').onchange = function() {
+      console.log('📅 Período alterado para:', this.value);
+      refreshAll();
+    };
+
+    // ---------- Funcionalidades dos CSVs ----------
+    
+    // Utilidades simples
+    const fmt = new Intl.NumberFormat('pt-BR');
+    function toPct(x) { 
+      return (x == null || isNaN(x)) ? "—" : (x >= 0 ? "+" : "") + x.toFixed(1) + "%"; 
+    }
+
+    async function loadFromCSVs() {
+      console.log('📊 Carregando dados dos CSVs...');
+      try {
+        // 1) Páginas comparadas (gera tabela com diff e %)
+        const pagesCompare = await fetchJson("/api/report?name=pages_top_compare");
+        renderPagesCompareTable(pagesCompare);
+
+        // 2) Primeiro acesso (tabela simples)
+        const first = await fetchJson("/api/report?name=first_user_acquisition");
+        renderFirstUserTable(first);
+
+        // 3) Dias com mais usuários (bar)
+        const daysTop = await fetchJson("/api/report?name=days_with_most_users");
+        renderDaysTop(daysTop);
+
+        // 4) Heatmap dia-da-semana (semana × dow)
+        const heat = await fetchJson("/api/report?name=weekday_heatmap");
+        renderWeekdayHeatmap(heat);
+
+        // 5) Vídeo (funil/ts a partir do CSV)
+        const video = await fetchJson("/api/report?name=video_events");
+        renderVideoFromCSV(video);
+
+        showAlert('✅ Dados dos CSVs carregados com sucesso!', 'success');
+        console.log('✅ Dados dos CSVs carregados com sucesso!');
+      } catch (error) {
+        console.error('❌ Erro ao carregar CSVs:', error);
+        showAlert(`❌ Erro ao carregar CSVs: ${error.message}`, 'danger');
+      }
+    }
+
+    // ---------- Renderizadores ----------
+
+    function renderPagesCompareTable(rows) {
+      const el = document.getElementById('pages-compare-table');
+      if (!rows || !rows.length) { 
+        el.innerHTML = "<div class='text-muted'>Sem dados de comparação de páginas.</div>"; 
+        return; 
+      }
+      
+      // Espera colunas: page, pageviews_cur, pageviews_prev, diff, pct (geradas no postprocess)
+      const top = rows.slice(0, 50);
+      let html = `<table class="table table-sm table-striped">
+        <thead><tr>
+          <th>Página</th><th class="text-end">Views (atual)</th><th class="text-end">Views (ant.)</th>
+          <th class="text-end">Δ</th><th class="text-end">%Δ</th>
+        </tr></thead><tbody>`;
+      
+      for (const r of top) {
+        const cur = +r.pageviews_cur || 0;
+        const prev = +r.pageviews_prev || 0;
+        const diff = (cur - prev);
+        const pct = prev ? (diff / prev * 100.0) : null;
+        html += `<tr>
+          <td style="max-width:520px; overflow:hidden; text-overflow:ellipsis;"><code>${r.page || ""}</code></td>
+          <td class="text-end">${fmt.format(cur)}</td>
+          <td class="text-end">${fmt.format(prev)}</td>
+          <td class="text-end ${diff >= 0 ? 'text-success' : 'text-danger'}">${diff >= 0 ? "+" : ""}${fmt.format(diff)}</td>
+          <td class="text-end ${pct >= 0 ? 'text-success' : 'text-danger'}">${toPct(pct)}</td>
+        </tr>`;
+      }
+      html += "</tbody></table>";
+      el.innerHTML = html;
+    }
+
+    function renderFirstUserTable(rows) {
+      const el = document.getElementById('first-user-table');
+      if (!rows || !rows.length) { 
+        el.innerHTML = "<div class='text-muted'>Sem dados de primeiro acesso.</div>"; 
+        return; 
+      }
+      
+      // Espera colunas: source, medium, campaign, users
+      const top = rows.slice(0, 50);
+      let html = `<table class="table table-sm table-striped">
+        <thead><tr><th>Source</th><th>Medium</th><th>Campaign</th><th class="text-end">Usuários</th></tr></thead><tbody>`;
+      
+      for (const r of top) {
+        html += `<tr>
+          <td>${r.source || "(not set)"}</td>
+          <td>${r.medium || "(not set)"}</td>
+          <td>${r.campaign || "(not set)"}</td>
+          <td class="text-end">${fmt.format(+r.users || 0)}</td>
+        </tr>`;
+      }
+      html += "</tbody></table>";
+      el.innerHTML = html;
+    }
+
+    function renderDaysTop(rows) {
+      const el = 'days-top-chart';
+      if (!rows || !rows.length) { 
+        Plotly.newPlot(el, [], {margin: {t: 20}}); 
+        return; 
+      }
+      
+      const x = rows.map(r => r.date);
+      const y = rows.map(r => +r.users || 0);
+      
+      Plotly.newPlot(el, [{
+        x: x, 
+        y: y, 
+        type: 'bar',
+        marker: { color: '#4285f4' }
+      }], {
+        margin: {t: 20}, 
+        xaxis: {title: 'Dia'}, 
+        yaxis: {title: 'Usuários'},
+        title: 'Top 30 Dias com Mais Usuários'
+      });
+    }
+
+    function renderWeekdayHeatmap(rows) {
+      const el = 'weekday-heatmap';
+      if (!rows || !rows.length) { 
+        Plotly.newPlot(el, [], {margin: {t: 20}}); 
+        return; 
+      }
+      
+      // Espera colunas: week, dow, day_name, users
+      const weeks = Array.from(new Set(rows.map(r => r.week))).sort((a, b) => a - b);
+      const days = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
+      const Z = days.map(() => Array(weeks.length).fill(0));
+      
+      rows.forEach(r => {
+        const wi = weeks.indexOf(r.week);
+        const di = r.dow; // 0..6
+        if (wi >= 0 && di >= 0) Z[di][wi] = +r.users || 0;
+      });
+      
+      Plotly.newPlot(el, [{
+        z: Z, 
+        x: weeks, 
+        y: days,
+        type: 'heatmap', 
+        hoverongaps: false,
+        colorscale: 'Blues'
+      }], {
+        margin: {t: 20}, 
+        xaxis: {title: 'Semana ISO'}, 
+        yaxis: {title: 'Dia da semana'},
+        title: 'Heatmap: Usuários por Dia da Semana'
+      });
+    }
+
+    function renderVideoFromCSV(rows) {
+      // Espera cols: date, event_name, video_title, video_percent, event_count
+      const sel = document.getElementById('video-title-csv');
+      sel.innerHTML = "";
+      
+      const titles = Array.from(new Set(rows.map(r => r.video_title).filter(Boolean))).sort();
+      const optAll = document.createElement('option'); 
+      optAll.value = "__all__"; 
+      optAll.textContent = "(Todos)";
+      sel.appendChild(optAll);
+      
+      titles.forEach(t => { 
+        const o = document.createElement('option'); 
+        o.value = t; 
+        o.textContent = t; 
+        sel.appendChild(o); 
+      });
+
+      const draw = (title = "__all__") => {
+        let v = rows.slice();
+        if (title !== "__all__") v = v.filter(r => r.video_title === title);
+        
+        // Funil agregado
+        const agg = {};
+        v.forEach(r => { 
+          agg[r.event_name] = (agg[r.event_name] || 0) + (+r.event_count || 0); 
+        });
+        
+        const order = ["video_start", "video_progress", "video_complete"].filter(k => agg[k] != null);
+        
+        Plotly.newPlot("video-funnel-csv", [{
+          x: order, 
+          y: order.map(k => agg[k] || 0), 
+          type: 'bar', 
+          text: order.map(k => agg[k] || 0), 
+          textposition: 'auto',
+          marker: { color: ['#4285f4', '#34a853', '#fbbc04'] }
+        }], {
+          margin: {t: 20},
+          title: 'Funil de Conversão de Vídeo'
+        });
+
+        // Timeline por evento
+        const series = {};
+        v.forEach(r => {
+          const k = r.event_name;
+          if (!series[k]) series[k] = {x: [], y: [], type: 'scatter', mode: 'lines+markers', name: k};
+          series[k].x.push(r.date);
+          series[k].y.push(+r.event_count || 0);
+        });
+        
+        Plotly.newPlot("video-ts-csv", Object.values(series), {
+          margin: {t: 20}, 
+          legend: {orientation: 'h'},
+          title: 'Evolução Temporal dos Eventos'
+        });
+      };
+      
+      draw();
+      sel.onchange = (e) => draw(e.target.value);
+    }
+
+    // Sistema de status integrado - os botões agora usam onclick diretamente
+  </script>
+</body>
+</html>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Status - Dashboard GA4</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Sistema de Status Global */
+        .status-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            max-width: 400px;
+        }
+
+        .status-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            margin-bottom: 10px;
+            overflow: hidden;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .status-header {
+            padding: 12px 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-success { background: linear-gradient(135deg, #28a745, #20c997); color: white; }
+        .status-error { background: linear-gradient(135deg, #dc3545, #e74c3c); color: white; }
+        .status-warning { background: linear-gradient(135deg, #ffc107, #fd7e14); color: white; }
+        .status-info { background: linear-gradient(135deg, #17a2b8, #6f42c1); color: white; }
+        .status-loading { background: linear-gradient(135deg, #007bff, #6610f2); color: white; }
+
+        .status-body {
+            padding: 12px 16px;
+            font-size: 14px;
+        }
+
+        .status-progress {
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .status-progress-bar {
+            height: 100%;
+            background: rgba(255,255,255,0.8);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .status-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: none;
+            border: none;
+            color: inherit;
+            opacity: 0.7;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .status-close:hover { opacity: 1; }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Connection Status */
+        .connection-status {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 9999;
+            background: white;
+            border-radius: 25px;
+            padding: 8px 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .connection-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .connection-online { background: #28a745; }
+        .connection-offline { background: #dc3545; }
+        .connection-loading { background: #ffc107; }
+
+        /* Progress Bar Global */
+        .global-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(0,0,0,0.1);
+            z-index: 10000;
+        }
+
+        .global-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #28a745);
+            transition: width 0.3s ease;
+        }
+
+        /* Log Console */
+        .log-console {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            max-height: 300px;
+            background: #1e1e1e;
+            color: #00ff00;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            z-index: 9999;
+            overflow: hidden;
+            display: none;
+        }
+
+        .log-header {
+            background: #333;
+            padding: 8px 12px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .log-content {
+            padding: 8px 12px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            margin-bottom: 4px;
+            padding: 2px 0;
+        }
+
+        .log-timestamp {
+            color: #666;
+            margin-right: 8px;
+        }
+
+        .log-info { color: #00ff00; }
+        .log-warning { color: #ffaa00; }
+        .log-error { color: #ff4444; }
+        .log-success { color: #44ff44; }
+
+        /* Button States */
+        .btn-loading {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .btn-loading::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            left: 50%;
+            margin-left: -8px;
+            margin-top: -8px;
+            border: 2px solid transparent;
+            border-top-color: currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+        }
+
+        .toast {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            margin-bottom: 10px;
+            overflow: hidden;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Global Progress Bar -->
+    <div class="global-progress" id="globalProgress" style="display: none;">
+        <div class="global-progress-bar" id="globalProgressBar"></div>
+    </div>
+
+    <!-- Status Container -->
+    <div class="status-container" id="statusContainer"></div>
+
+    <!-- Connection Status -->
+    <div class="connection-status" id="connectionStatus">
+        <div class="connection-dot connection-loading" id="connectionDot"></div>
+        <span id="connectionText">Verificando conexão...</span>
+    </div>
+
+    <!-- Log Console -->
+    <div class="log-console" id="logConsole">
+        <div class="log-header">
+            <span>Console de Logs</span>
+            <button class="btn-close btn-close-white" onclick="toggleLogConsole()"></button>
+        </div>
+        <div class="log-content" id="logContent"></div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Demo Content -->
+    <div class="container mt-5">
+        <h1>Sistema de Status - Dashboard GA4</h1>
+        <p>Demonstração do sistema de feedback visual implementado.</p>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Testes de Status</h3>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" onclick="showStatus('loading', 'Carregando dados...', 'Conectando ao GA4...')">
+                        <i class="fas fa-spinner fa-spin"></i> Teste Loading
+                    </button>
+                    <button class="btn btn-success" onclick="showStatus('success', 'Sucesso!', 'Dados carregados com sucesso!')">
+                        <i class="fas fa-check"></i> Teste Sucesso
+                    </button>
+                    <button class="btn btn-warning" onclick="showStatus('warning', 'Atenção!', 'Alguns dados podem estar desatualizados.')">
+                        <i class="fas fa-exclamation-triangle"></i> Teste Aviso
+                    </button>
+                    <button class="btn btn-danger" onclick="showStatus('error', 'Erro!', 'Falha na conexão com o servidor.')">
+                        <i class="fas fa-times"></i> Teste Erro
+                    </button>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <h3>Testes de Progresso</h3>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-info" onclick="testProgress()">
+                        <i class="fas fa-download"></i> Teste Progress Bar
+                    </button>
+                    <button class="btn btn-secondary" onclick="testConnection()">
+                        <i class="fas fa-wifi"></i> Teste Conexão
+                    </button>
+                    <button class="btn btn-dark" onclick="toggleLogConsole()">
+                        <i class="fas fa-terminal"></i> Console de Logs
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <h3>Simulação de Operações</h3>
+                <div class="d-grid gap-2 d-md-flex">
+                    <button class="btn btn-primary btn-loading" id="btnGenerateCSV" onclick="simulateGenerateCSV()">
+                        <i class="fas fa-file-csv"></i> Gerar CSVs
+                    </button>
+                    <button class="btn btn-success btn-loading" id="btnLoadData" onclick="simulateLoadData()">
+                        <i class="fas fa-database"></i> Carregar Dados
+                    </button>
+                    <button class="btn btn-info btn-loading" id="btnSendReport" onclick="simulateSendReport()">
+                        <i class="fas fa-paper-plane"></i> Enviar Relatório
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sistema de Status Global
+        class StatusSystem {
+            constructor() {
+                this.statusContainer = document.getElementById('statusContainer');
+                this.connectionStatus = document.getElementById('connectionStatus');
+                this.connectionDot = document.getElementById('connectionDot');
+                this.connectionText = document.getElementById('connectionText');
+                this.globalProgress = document.getElementById('globalProgress');
+                this.globalProgressBar = document.getElementById('globalProgressBar');
+                this.logConsole = document.getElementById('logConsole');
+                this.logContent = document.getElementById('logContent');
+                this.toastContainer = document.getElementById('toastContainer');
+                
+                this.isOnline = navigator.onLine;
+                this.setupEventListeners();
+                this.checkConnection();
+            }
+
+            setupEventListeners() {
+                window.addEventListener('online', () => {
+                    this.isOnline = true;
+                    this.updateConnectionStatus('online', 'Conectado');
+                });
+
+                window.addEventListener('offline', () => {
+                    this.isOnline = false;
+                    this.updateConnectionStatus('offline', 'Desconectado');
+                });
+            }
+
+            checkConnection() {
+                fetch('/api/test-connection', { method: 'GET' })
+                    .then(response => {
+                        if (response.ok) {
+                            this.updateConnectionStatus('online', 'Conectado');
+                        } else {
+                            this.updateConnectionStatus('offline', 'Erro de conexão');
+                        }
+                    })
+                    .catch(() => {
+                        this.updateConnectionStatus('offline', 'Servidor indisponível');
+                    });
+            }
+
+            updateConnectionStatus(status, text) {
+                this.connectionDot.className = `connection-dot connection-${status}`;
+                this.connectionText.textContent = text;
+            }
+
+            showStatus(type, title, message, duration = 5000, progress = null) {
+                const statusCard = document.createElement('div');
+                statusCard.className = 'status-card';
+                
+                const icons = {
+                    success: 'fas fa-check-circle',
+                    error: 'fas fa-times-circle',
+                    warning: 'fas fa-exclamation-triangle',
+                    info: 'fas fa-info-circle',
+                    loading: 'fas fa-spinner fa-spin'
+                };
+
+                statusCard.innerHTML = `
+                    <div class="status-header status-${type}">
+                        <i class="${icons[type]}"></i>
+                        <span>${title}</span>
+                        <button class="status-close" onclick="this.parentElement.parentElement.remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="status-body">
+                        <div>${message}</div>
+                        ${progress !== null ? `
+                            <div class="status-progress mt-2">
+                                <div class="status-progress-bar" style="width: ${progress}%"></div>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+
+                this.statusContainer.appendChild(statusCard);
+
+                if (duration > 0) {
+                    setTimeout(() => {
+                        if (statusCard.parentElement) {
+                            statusCard.remove();
+                        }
+                    }, duration);
+                }
+
+                return statusCard;
+            }
+
+            showProgress(title, message, progress = 0) {
+                return this.showStatus('loading', title, message, 0, progress);
+            }
+
+            updateProgress(statusCard, progress, message = null) {
+                if (statusCard) {
+                    const progressBar = statusCard.querySelector('.status-progress-bar');
+                    const messageDiv = statusCard.querySelector('.status-body > div:first-child');
+                    
+                    if (progressBar) {
+                        progressBar.style.width = `${progress}%`;
+                    }
+                    
+                    if (message && messageDiv) {
+                        messageDiv.textContent = message;
+                    }
+                }
+            }
+
+            showGlobalProgress(show = true) {
+                this.globalProgress.style.display = show ? 'block' : 'none';
+            }
+
+            updateGlobalProgress(progress) {
+                this.globalProgressBar.style.width = `${progress}%`;
+            }
+
+            log(level, message) {
+                const timestamp = new Date().toLocaleTimeString();
+                const logEntry = document.createElement('div');
+                logEntry.className = `log-entry log-${level}`;
+                logEntry.innerHTML = `
+                    <span class="log-timestamp">[${timestamp}]</span>
+                    <span>${message}</span>
+                `;
+                
+                this.logContent.appendChild(logEntry);
+                this.logContent.scrollTop = this.logContent.scrollHeight;
+            }
+
+            toggleLogConsole() {
+                this.logConsole.style.display = this.logConsole.style.display === 'none' ? 'block' : 'none';
+            }
+
+            showToast(message, type = 'info', duration = 3000) {
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                
+                const colors = {
+                    success: '#28a745',
+                    error: '#dc3545',
+                    warning: '#ffc107',
+                    info: '#17a2b8'
+                };
+
+                toast.innerHTML = `
+                    <div class="toast-body" style="padding: 12px 16px; color: ${colors[type]};">
+                        <i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'times' : type === 'warning' ? 'exclamation-triangle' : 'info'}"></i>
+                        ${message}
+                    </div>
+                `;
+
+                this.toastContainer.appendChild(toast);
+
+                setTimeout(() => {
+                    toast.remove();
+                }, duration);
+            }
+
+            setButtonLoading(buttonId, loading = true) {
+                const button = document.getElementById(buttonId);
+                if (button) {
+                    if (loading) {
+                        button.classList.add('btn-loading');
+                        button.disabled = true;
+                    } else {
+                        button.classList.remove('btn-loading');
+                        button.disabled = false;
+                    }
+                }
+            }
+        }
+
+        // Inicializar sistema
+        const statusSystem = new StatusSystem();
+
+        // Funções de teste
+        function showStatus(type, title, message) {
+            statusSystem.showStatus(type, title, message);
+        }
+
+        function testProgress() {
+            const statusCard = statusSystem.showProgress('Teste de Progresso', 'Iniciando operação...', 0);
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                statusSystem.updateProgress(statusCard, progress, `Processando... ${progress}%`);
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        statusCard.remove();
+                        statusSystem.showStatus('success', 'Concluído!', 'Operação finalizada com sucesso!');
+                    }, 500);
+                }
+            }, 200);
+        }
+
+        function testConnection() {
+            statusSystem.showStatus('loading', 'Testando Conexão', 'Verificando conectividade...');
+            
+            setTimeout(() => {
+                statusSystem.checkConnection();
+                statusSystem.showStatus('success', 'Conexão OK', 'Servidor respondendo normalmente!');
+            }, 1500);
+        }
+
+        function toggleLogConsole() {
+            statusSystem.toggleLogConsole();
+        }
+
+        // Simulações de operações reais
+        function simulateGenerateCSV() {
+            statusSystem.setButtonLoading('btnGenerateCSV', true);
+            statusSystem.showGlobalProgress(true);
+            statusSystem.log('info', 'Iniciando geração de CSVs...');
+            
+            const statusCard = statusSystem.showProgress('Gerando CSVs', 'Conectando ao GA4...', 0);
+            
+            let progress = 0;
+            const steps = [
+                { progress: 20, message: 'Conectando ao GA4...' },
+                { progress: 40, message: 'Baixando dados de usuários...' },
+                { progress: 60, message: 'Processando páginas mais visitadas...' },
+                { progress: 80, message: 'Gerando relatórios especializados...' },
+                { progress: 100, message: 'Finalizando arquivos CSV...' }
+            ];
+            
+            let stepIndex = 0;
+            const interval = setInterval(() => {
+                if (stepIndex < steps.length) {
+                    const step = steps[stepIndex];
+                    statusSystem.updateProgress(statusCard, step.progress, step.message);
+                    statusSystem.updateGlobalProgress(step.progress);
+                    statusSystem.log('info', step.message);
+                    stepIndex++;
+                } else {
+                    clearInterval(interval);
+                    statusCard.remove();
+                    statusSystem.showGlobalProgress(false);
+                    statusSystem.setButtonLoading('btnGenerateCSV', false);
+                    statusSystem.showStatus('success', 'CSVs Gerados!', 'Arquivos criados com sucesso!');
+                    statusSystem.log('success', 'Geração de CSVs concluída!');
+                }
+            }, 800);
+        }
+
+        function simulateLoadData() {
+            statusSystem.setButtonLoading('btnLoadData', true);
+            statusSystem.log('info', 'Carregando dados dos CSVs...');
+            
+            const statusCard = statusSystem.showProgress('Carregando Dados', 'Lendo arquivos CSV...', 0);
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 25;
+                const messages = [
+                    'Lendo arquivos CSV...',
+                    'Processando dados de usuários...',
+                    'Carregando páginas mais visitadas...',
+                    'Finalizando carregamento...'
+                ];
+                
+                const messageIndex = Math.floor(progress / 25) - 1;
+                statusSystem.updateProgress(statusCard, progress, messages[messageIndex] || 'Finalizando...');
+                statusSystem.log('info', messages[messageIndex] || 'Finalizando...');
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    statusCard.remove();
+                    statusSystem.setButtonLoading('btnLoadData', false);
+                    statusSystem.showStatus('success', 'Dados Carregados!', 'Informações atualizadas no dashboard!');
+                    statusSystem.log('success', 'Carregamento de dados concluído!');
+                }
+            }, 600);
+        }
+
+        function simulateSendReport() {
+            statusSystem.setButtonLoading('btnSendReport', true);
+            statusSystem.log('info', 'Preparando relatório para envio...');
+            
+            const statusCard = statusSystem.showProgress('Enviando Relatório', 'Preparando dados...', 0);
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 33;
+                const messages = [
+                    'Preparando dados...',
+                    'Enviando via Slack...',
+                    'Confirmando entrega...'
+                ];
+                
+                const messageIndex = Math.floor(progress / 33) - 1;
+                statusSystem.updateProgress(statusCard, progress, messages[messageIndex] || 'Finalizando...');
+                statusSystem.log('info', messages[messageIndex] || 'Finalizando...');
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    statusCard.remove();
+                    statusSystem.setButtonLoading('btnSendReport', false);
+                    statusSystem.showStatus('success', 'Relatório Enviado!', 'Mensagem entregue com sucesso!');
+                    statusSystem.log('success', 'Relatório enviado via Slack!');
+                }
+            }, 700);
+        }
+
+        // Logs automáticos
+        setInterval(() => {
+            const messages = [
+                'Sistema funcionando normalmente',
+                'Verificando conexão com GA4',
+                'Monitorando métricas em tempo real',
+                'Cache atualizado automaticamente'
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            statusSystem.log('info', randomMessage);
+        }, 10000);
+    </script>
+</body>
+</html>

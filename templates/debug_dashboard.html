@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Dashboard - GA4</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Debug Dashboard - GA4</h1>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Teste de Carregamento de Dados</h5>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Período (dias):</label>
+                            <select id="days" class="form-select">
+                                <option value="7">7 dias</option>
+                                <option value="30" selected>30 dias</option>
+                                <option value="60">60 dias</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <button id="test-load" class="btn btn-primary">
+                                <i class="fas fa-play"></i> Testar Carregamento
+                            </button>
+                            <button id="test-metrics" class="btn btn-outline-primary ms-2">
+                                <i class="fas fa-chart-bar"></i> Testar Metrics
+                            </button>
+                            <button id="test-daily" class="btn btn-outline-success ms-2">
+                                <i class="fas fa-chart-line"></i> Testar Daily
+                            </button>
+                        </div>
+                        
+                        <div id="status" class="alert" style="display: none;"></div>
+                        <div id="results" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showStatus(message, type = 'info') {
+            const status = document.getElementById('status');
+            status.className = `alert alert-${type}`;
+            status.textContent = message;
+            status.style.display = 'block';
+        }
+
+        function showResults(content) {
+            document.getElementById('results').innerHTML = content;
+        }
+
+        async function fetchJson(url) {
+            console.log(`🔄 Fetching: ${url}`);
+            const response = await fetch(url);
+            console.log(`📡 Response status: ${response.status}`);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            const data = await response.json();
+            console.log(`📊 Data received:`, data);
+            return data;
+        }
+
+        async function testMetrics() {
+            const btn = document.getElementById('test-metrics');
+            const days = parseInt(document.getElementById('days').value, 10);
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testando...';
+            showStatus('Testando API de métricas...', 'info');
+            
+            try {
+                const data = await fetchJson(`/api/metrics?days=${days}`);
+                
+                if (data.success) {
+                    showStatus('✅ Métricas carregadas com sucesso!', 'success');
+                    showResults(`
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>Dados de Métricas:</h6>
+                                <pre>${JSON.stringify(data, null, 2)}</pre>
+                            </div>
+                        </div>
+                    `);
+                } else {
+                    throw new Error(data.message || 'Erro desconhecido');
+                }
+                
+            } catch (error) {
+                console.error('❌ Erro:', error);
+                showStatus(`❌ Erro: ${error.message}`, 'danger');
+                showResults('');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-chart-bar"></i> Testar Metrics';
+            }
+        }
+
+        async function testDaily() {
+            const btn = document.getElementById('test-daily');
+            const days = parseInt(document.getElementById('days').value, 10);
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testando...';
+            showStatus('Testando API de dados diários...', 'info');
+            
+            try {
+                const data = await fetchJson(`/api/daily-chart?days=${days * 2}`);
+                
+                showStatus('✅ Dados diários carregados com sucesso!', 'success');
+                showResults(`
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Dados Diários:</h6>
+                            <p>Registros: ${Array.isArray(data) ? data.length : 'N/A'}</p>
+                            <pre>${JSON.stringify(Array.isArray(data) ? data.slice(0, 3) : data, null, 2)}</pre>
+                        </div>
+                    </div>
+                `);
+                
+            } catch (error) {
+                console.error('❌ Erro:', error);
+                showStatus(`❌ Erro: ${error.message}`, 'danger');
+                showResults('');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-chart-line"></i> Testar Daily';
+            }
+        }
+
+        async function testLoadAll() {
+            const btn = document.getElementById('test-load');
+            const days = parseInt(document.getElementById('days').value, 10);
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Carregando...';
+            showStatus('Testando carregamento completo...', 'info');
+            
+            try {
+                console.log('🔄 Iniciando teste de carregamento completo...');
+                
+                const [metrics, daily, pages, devices, acquisition, video] = await Promise.all([
+                    fetchJson(`/api/metrics?days=${days}`),
+                    fetchJson(`/api/daily-chart?days=${days * 2}`),
+                    fetchJson(`/api/top-pages?days=${days}&limit=25`),
+                    fetchJson(`/api/device-breakdown?days=${days}`),
+                    fetchJson(`/api/first-user-acquisition?days=${days}`),
+                    fetchJson(`/api/video-events?days=${days}`)
+                ]);
+                
+                console.log('📊 Todos os dados carregados:', { metrics, daily, pages, devices, acquisition, video });
+                
+                showStatus('✅ Todos os dados carregados com sucesso!', 'success');
+                showResults(`
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Resumo dos Dados:</h6>
+                            <ul>
+                                <li>Métricas: ${metrics.success ? '✅' : '❌'}</li>
+                                <li>Daily: ${Array.isArray(daily) ? daily.length + ' registros' : '❌'}</li>
+                                <li>Pages: ${Array.isArray(pages) ? pages.length + ' páginas' : '❌'}</li>
+                                <li>Devices: ${Array.isArray(devices) ? devices.length + ' dispositivos' : '❌'}</li>
+                                <li>Acquisition: ${Array.isArray(acquisition) ? acquisition.length + ' fontes' : '❌'}</li>
+                                <li>Video: ${Array.isArray(video) ? video.length + ' eventos' : '❌'}</li>
+                            </ul>
+                        </div>
+                    </div>
+                `);
+                
+            } catch (error) {
+                console.error('❌ Erro no carregamento:', error);
+                showStatus(`❌ Erro: ${error.message}`, 'danger');
+                showResults('');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-play"></i> Testar Carregamento';
+            }
+        }
+
+        // Event listeners
+        document.getElementById('test-metrics').onclick = testMetrics;
+        document.getElementById('test-daily').onclick = testDaily;
+        document.getElementById('test-load').onclick = testLoadAll;
+    </script>
+</body>
+</html>
