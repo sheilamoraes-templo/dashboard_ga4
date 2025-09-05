@@ -10,6 +10,11 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <!-- Plotly -->
   <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  <!-- Tornar função loadFromCSVs global ANTES do status_system.js -->
+  <script>
+    // Declaração global da função loadFromCSVs para o status_system.js
+    window.loadFromCSVs = null; // Será definida quando a função for criada
+  </script>
   <!-- Sistema de Status -->
   <script src="{{ url_for('static', filename='js/status_system.js') }}"></script>
   <style>
@@ -154,7 +159,7 @@
                 <button id="refresh-csv" class="btn btn-outline-success btn-lg" onclick="statusSystem.generateCSV()">
                   <i class="fas fa-download"></i> Gerar CSVs
                 </button>
-                <button id="load-from-csv" class="btn btn-outline-warning btn-lg" onclick="statusSystem.loadData()">
+                <button id="load-from-csv" class="btn btn-outline-warning btn-lg" onclick="loadDataWithStatus()">
                   <i class="fas fa-chart-bar"></i> Carregar dos CSVs
                 </button>
                 <button id="download-zip" class="btn btn-outline-info btn-lg">
@@ -953,12 +958,31 @@
     // Inicialização
     document.addEventListener('DOMContentLoaded', function() {
       console.log('🚀 DOM carregado, iniciando dashboard...');
-      try {
-        refreshAll();
-      } catch (error) {
-        console.error('❌ Erro na inicialização:', error);
-        showAlert('❌ Erro na inicialização: ' + error.message, 'danger');
-      }
+      console.log('🔍 Verificando elementos:', {
+        days: document.getElementById('days'),
+        refresh: document.getElementById('refresh'),
+        statusSystem: typeof statusSystem
+      });
+      
+      // Aguardar um pouco para garantir que tudo está carregado
+      setTimeout(() => {
+        try {
+          console.log('🔄 Iniciando carregamento automático...');
+          refreshAll();
+        } catch (error) {
+          console.error('❌ Erro na inicialização:', error);
+          showAlert('❌ Erro na inicialização: ' + error.message, 'danger');
+          
+          // Fallback: tentar carregar dados dos CSVs diretamente
+          console.log('🔄 Tentando fallback com CSVs...');
+          try {
+            loadFromCSVs();
+          } catch (csvError) {
+            console.error('❌ Erro no fallback CSV:', csvError);
+            showAlert('❌ Erro ao carregar dados: ' + csvError.message, 'danger');
+          }
+        }
+      }, 1000); // Aguardar 1 segundo
     });
 
     // Event listeners
@@ -1020,6 +1044,34 @@
         console.error('❌ Erro ao carregar CSVs:', error);
         showAlert(`❌ Erro ao carregar CSVs: ${error.message}`, 'danger');
       }
+    }
+
+    // Tornar função loadFromCSVs global para o status_system.js
+    window.loadFromCSVs = loadFromCSVs;
+
+    // Função wrapper que integra com o sistema de status
+    async function loadDataWithStatus() {
+        const operationId = 'load-data-direct';
+        if (typeof statusSystem !== 'undefined') {
+            statusSystem.startOperation(operationId, 'Carregando Dados', 'Lendo arquivos CSV...');
+            statusSystem.setButtonLoading('load-from-csv', true);
+        }
+        
+        try {
+            await loadFromCSVs();
+            if (typeof statusSystem !== 'undefined') {
+                statusSystem.completeOperation(operationId, true, 'Dados carregados no dashboard!');
+            }
+        } catch (error) {
+            console.error('Erro ao carregar dados:', error);
+            if (typeof statusSystem !== 'undefined') {
+                statusSystem.completeOperation(operationId, false, `Erro ao carregar dados: ${error.message}`);
+            }
+        } finally {
+            if (typeof statusSystem !== 'undefined') {
+                statusSystem.setButtonLoading('load-from-csv', false);
+            }
+        }
     }
 
     // ---------- Renderizadores ----------

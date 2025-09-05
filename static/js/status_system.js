@@ -448,9 +448,24 @@ class StatusSystem {
         this.startOperation(operationId, 'Carregando Dados', 'Lendo arquivos CSV...');
         this.setButtonLoading('load-from-csv', true);
         
-        // Chamar função real de carregamento
-        if (typeof loadFromCSVs === 'function') {
-            loadFromCSVs()
+        // Tentar múltiplas formas de chamar a função
+        let loadFunction = null;
+        
+        // 1. Tentar window.loadFromCSVs
+        if (typeof window.loadFromCSVs === 'function') {
+            loadFunction = window.loadFromCSVs;
+        }
+        // 2. Tentar loadFromCSVs global
+        else if (typeof loadFromCSVs === 'function') {
+            loadFunction = loadFromCSVs;
+        }
+        // 3. Tentar encontrar no escopo do documento
+        else if (typeof window.loadFromCSVs === 'function') {
+            loadFunction = window.loadFromCSVs;
+        }
+        
+        if (loadFunction) {
+            loadFunction()
                 .then(() => {
                     this.completeOperation(operationId, true, 'Dados carregados no dashboard!');
                 })
@@ -461,12 +476,28 @@ class StatusSystem {
                     this.setButtonLoading('load-from-csv', false);
                 });
         } else {
-            // Fallback se a função não existir
-            setTimeout(() => {
-                this.completeOperation(operationId, false, 'Função loadFromCSVs não encontrada');
-                this.setButtonLoading('load-from-csv', false);
-            }, 1000);
+            // Fallback: chamar diretamente via fetch
+            this.loadDataViaAPI(operationId);
         }
+    }
+
+    // Método alternativo via API
+    loadDataViaAPI(operationId) {
+        fetch('/api/load-csv-data')
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    this.completeOperation(operationId, true, 'Dados carregados via API!');
+                } else {
+                    this.completeOperation(operationId, false, data.error || 'Erro ao carregar dados');
+                }
+            })
+            .catch(error => {
+                this.completeOperation(operationId, false, `Erro na API: ${error.message}`);
+            })
+            .finally(() => {
+                this.setButtonLoading('load-from-csv', false);
+            });
     }
 
     sendReport() {

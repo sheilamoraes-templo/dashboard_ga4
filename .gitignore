@@ -47,9 +47,6 @@ Thumbs.db
 # Project specific
 data/cache/
 *.log
-*.csv
-*.parquet
-*.xlsx
 credenciais_google_ga4.json
 .env
 .env.local
@@ -61,6 +58,12 @@ credenciais_google_ga4.json
 **/service-account*.json
 **/*service-account*.json
 
+# Data files (keep structure but ignore content)
+data/*.csv
+data/*.parquet
+data/*.xlsx
+data/*.pdf
+
 # Test files
 test.csv
 test_*.html
@@ -69,3 +72,14 @@ test_*.py
 # Temporary files
 *.tmp
 *.temp
+
+# Streamlit
+.streamlit/
+
+# Jupyter Notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Cache directories
+cache/
+__pycache__/

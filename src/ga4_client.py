@@ -13,6 +13,7 @@ from google.analytics.data_v1beta.types import (
     OrderBy
 )
 from config.settings import GA4_PROPERTY_ID, GA4_CREDENTIALS_PATH
+from src.cache_manager import cache_manager
 from .fake_data_client import FakeDataClient
 from .superstore_data_client import SuperstoreDataClient
 
@@ -358,6 +359,45 @@ class GA4Client:
                 )
             )
         )
+
+    def _window(self, days: int):
+        """Retorna tupla (start_date, end_date) para o período especificado"""
+        end_date = datetime.now().strftime("%Y-%m-%d")
+        start_date = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
+        return start_date, end_date
+
+    def _as_date(self, df: pd.DataFrame, column: str) -> pd.DataFrame:
+        """Converte coluna para datetime se necessário"""
+        if column in df.columns and df[column].dtype == 'object':
+            try:
+                df[column] = pd.to_datetime(df[column], errors='coerce')
+            except Exception:
+                pass
+        return df
+
+    def _run_with_cache(self, method_name: str, days: int, **kwargs) -> pd.DataFrame:
+        """Executa método com cache para reduzir chamadas à API"""
+        # Gerar chave de cache
+        cache_params = {"days": days, **kwargs}
+        cache_key = cache_manager.get_cache_key(method_name, cache_params)
+        
+        # Verificar se há cache válido (30 minutos)
+        if cache_manager.is_cache_valid(cache_key, max_age_minutes=30):
+            cached_data = cache_manager.get_cached_data(cache_key)
+            if cached_data and "data" in cached_data:
+                print(f"📦 Usando cache para {method_name}")
+                return pd.DataFrame(cached_data["data"])
+        
+        # Executar método original
+        print(f"🔄 Executando {method_name} via API...")
+        method = getattr(self, method_name)
+        result = method(days, **kwargs)
+        
+        # Salvar no cache
+        if not result.empty:
+            cache_manager.set_cached_data(cache_key, result.to_dict(orient="records"))
+        
+        return result
 
     def run_generic(self, days: int, dimensions: list, metrics: list,
                     filter_in: dict = None, filter_contains: dict = None,
