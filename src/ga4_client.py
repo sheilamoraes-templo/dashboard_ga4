@@ -13,9 +13,9 @@ from google.analytics.data_v1beta.types import (
     OrderBy
 )
 from config.settings import GA4_PROPERTY_ID, GA4_CREDENTIALS_PATH
-from src.cache_manager import cache_manager
-from .fake_data_client import FakeDataClient
-from .superstore_data_client import SuperstoreDataClient
+from cache_manager import cache_manager
+from fake_data_client import FakeDataClient
+from superstore_data_client import SuperstoreDataClient
 
 class GA4Client:
     def __init__(self):
@@ -583,3 +583,117 @@ class GA4Client:
         df["video_title"] = None
         df["video_percent"] = None
         return df[["date", "event_name", "video_title", "video_percent", "event_count"]]
+    
+    def get_top_pages(self, days: int = 30, limit: int = 50) -> pd.DataFrame:
+        """Obtém top páginas e links mais acessados"""
+        df = self.run_generic(
+            days=days,
+            dimensions=["pagePath"],
+            metrics=["screenPageViews", "sessions", "users"],
+            order_by_metric="screenPageViews",
+            limit=limit
+        )
+        
+        if df.empty:
+            return df
+        
+        df = df.rename(columns={
+            "pagePath": "page",
+            "screenPageViews": "pageviews",
+            "sessions": "sessions",
+            "users": "users"
+        })
+        
+        return df[["page", "pageviews", "sessions", "users"]]
+    
+    def get_device_breakdown(self, days: int = 30) -> pd.DataFrame:
+        """Obtém breakdown por dispositivo"""
+        df = self.run_generic(
+            days=days,
+            dimensions=["deviceCategory"],
+            metrics=["users", "sessions", "screenPageViews"],
+            order_by_metric="users"
+        )
+        
+        if df.empty:
+            return df
+        
+        df = df.rename(columns={
+            "deviceCategory": "device",
+            "users": "users",
+            "sessions": "sessions",
+            "screenPageViews": "pageviews"
+        })
+        
+        return df[["device", "users", "sessions", "pageviews"]]
+    
+    def get_first_user_acquisition(self, days: int = 30) -> pd.DataFrame:
+        """Obtém dados de primeiros acessos (source/medium)"""
+        df = self.run_generic(
+            days=days,
+            dimensions=["firstUserSource", "firstUserMedium"],
+            metrics=["newUsers", "sessions"],
+            order_by_metric="newUsers"
+        )
+        
+        if df.empty:
+            return df
+        
+        df = df.rename(columns={
+            "firstUserSource": "source",
+            "firstUserMedium": "medium",
+            "newUsers": "users",
+            "sessions": "sessions"
+        })
+        
+        return df[["source", "medium", "users", "sessions"]]
+    
+    def get_video_events(self, days: int = 30) -> pd.DataFrame:
+        """Obtém eventos de vídeo (video_start, video_progress, video_complete)"""
+        return self.video_events_specific(days, ["video_start", "video_progress", "video_complete"])
+    
+    def get_weekly_comparison(self, weeks: int = 4) -> pd.DataFrame:
+        """Obtém dados para comparação semanal"""
+        df = self.run_generic(
+            days=weeks*7,
+            dimensions=["yearWeek"],
+            metrics=["users", "sessions", "screenPageViews", "averageSessionDuration", "bounceRate"],
+            order_by_metric="yearWeek"
+        )
+        
+        if df.empty:
+            return df
+        
+        df = df.rename(columns={
+            "yearWeek": "week",
+            "users": "users",
+            "sessions": "sessions",
+            "screenPageViews": "pageviews",
+            "averageSessionDuration": "avg_session_duration",
+            "bounceRate": "bounce_rate"
+        })
+        
+        return df[["week", "users", "sessions", "pageviews", "avg_session_duration", "bounce_rate"]]
+    
+    def get_days_with_most_users(self, days: int = 30) -> pd.DataFrame:
+        """Obtém dados dos dias com mais usuários"""
+        df = self.run_generic(
+            days=days,
+            dimensions=["date"],
+            metrics=["users", "sessions", "screenPageViews", "averageSessionDuration", "bounceRate"],
+            order_by_metric="users"
+        )
+        
+        if df.empty:
+            return df
+        
+        df = self._as_date(df, "date")
+        df = df.rename(columns={
+            "users": "users",
+            "sessions": "sessions",
+            "screenPageViews": "pageviews",
+            "averageSessionDuration": "avg_session_duration",
+            "bounceRate": "bounce_rate"
+        })
+        
+        return df[["date", "users", "sessions", "pageviews", "avg_session_duration", "bounce_rate"]]

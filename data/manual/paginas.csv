@@ -1,0 +1,872 @@
+# ----------------------------------------
+# Classplay
+# Caminhos de página-Formato livre 1
+# 20250802-20250831
+# ----------------------------------------
+
+Título da página,Caminho da página e classe da tela,Visualizações,Usuários ativos,Tempo médio de engajamento por sessão,Contagem de eventos
+,,11613,261,178.8071672354949,31095,Total geral
+Página inicial | Classplay,/,2081,216,41.04613610149942,5391
+Gerenciamento de curso e categoria | Classplay,/course/management.php,847,8,81.87951807228916,1837
+Prompts | Classplay,/mod/aiprompts/view.php,833,80,52.351351351351354,1912
+Agentes IA | Classplay,/mod/aiagents/view.php,537,73,59.01025641025641,1594
+Agentes IA | Classplay,/mod/aiagents/resource.php,518,52,67.68243243243244,1178
+Prompts | Classplay,/mod/aiprompts/resource.php,514,53,70.76229508196721,1614
+Pesquisa | Administração | Classplay,/admin/search.php,434,14,33.46017699115044,950
+Editar configurações do curso | Classplay,/course/edit.php,374,9,56.391304347826086,1020
+Ferramentas | Classplay,/mod/aitools/view.php,272,62,35.73728813559322,694
+Métodos de inscrição | Classplay,/enrol/instances.php,254,3,41.2,741
+Agente Generativo | Classplay,/mod/aiagents/resource.php,189,72,45.595588235294116,526
+Curso: Lápis Raro | Classplay,/course/view.php,141,49,41.71910112359551,370
+Ferramentas | Classplay,/mod/aitools/resource.php,136,37,30.768115942028984,468
+Curso: Introdução à IA Generativa | Classplay,/course/view.php,110,34,228.81720430107526,562
+Prompts Freemium | Classplay,/mod/aiprompts/resource.php,108,1,822,411
+Prompts Freemium | Classplay,/mod/aiprompts/view.php,106,1,315.5,256
+Curso: Modelos de IA | Classplay,/course/view.php,105,14,22.6,326
+Sincronização de coorte | Classplay,/enrol/editinstance.php,100,3,42.46153846153846,424
+Editar curso: O Mundo dos Agentes | Classplay,/course/view.php,98,1,404,216
+Classplay,/,82,23,12.885714285714286,174
+Curso: FCA: Formação de Talentos | Classplay,/course/view.php,70,27,174.8135593220339,236
+Editar curso: Introdução à IA Generativa | Classplay,/course/view.php,68,3,167.8181818181818,152
+Inscrição em coorte por campo de perfil | Classplay,/local/profilecohort/index.php,64,2,36.18181818181818,198
+Avisos do site | Classplay,/mod/forum/view.php,63,39,8.166666666666666,204
+Editar curso: FCA: Formação de Talentos | Classplay,/course/view.php,59,4,213.1,128
+Editar curso: 🔒 IA + Branding | Classplay,/course/view.php,54,2,80.08333333333333,120
+Editar curso: Modelos de IA | Classplay,/course/view.php,47,2,59,118
+WOW Templo [ways of work],/turmas-templo/controle-templo/wow-templo,47,14,23.636363636363637,102
+Turmas Templo,/turmas-templo,46,17,21.825,68
+ClassPlay | Configurações de tema personalizado | Aparência | Administração | Classplay,/admin/settings.php,44,3,89.26666666666667,146
+Curso: 🔒 IA + Branding | Classplay,/course/view.php,43,2,44.5,98
+Editar curso: 🔒 Imagem & Vídeo | Classplay,/course/view.php,42,2,117.8,92
+LAPISRARO.0925T1: Playlist de Estudos - Módulo 1 | Classplay,/mod/resource/view.php,41,26,23.558823529411764,110
+Curso: O Mundo dos Agents | Classplay,/course/view.php,40,13,29.848484848484848,130
+Editar curso: IA Generativa no Marketing Digital | Classplay,/course/view.php,39,1,333.25,92
+Gerenciar inscrições manuais | Classplay,/enrol/manual/manage.php,38,1,36.5,146
+Agente Generativo | Classplay,/mod/aiagents/view.php,37,20,7.458333333333333,118
+LAPISRARO.0925T1: Apresentação - Aulas 1 e 2 | Classplay,/mod/resource/view.php,37,23,15.657894736842104,106
+1. Introdução à IAG no Marketing Digital,/conteudo/cursos/introducao-iag-no-mkt-digital/introduo-iag-no-marketing-digital,33,20,0.1935483870967742,86
+Editar curso: 🔒 Operações de Marketing | Classplay,/course/view.php,33,1,243.4,75
+Configurações da página principal | Página principal | Administração | Classplay,/admin/settings.php,31,7,2.88,61
+Coortes do sistemas | Classplay,/cohort/index.php,31,5,16.57894736842105,74
+Editar curso: 🔒 O Básico de I.A no Marketing | Classplay,/course/view.php,30,1,76,69
+Curso: eBooks | Classplay,/course/view.php,29,11,23.2,76
+Editar curso: IA para Advogados | Classplay,/course/view.php,29,1,303.4,101
+Novo Arquivo | TEMPLO.FCA | Classplay,/course/modedit.php,29,2,100.8,109
+Temas | Aparência | Administração | Classplay,/admin/themeselector.php,29,3,5.866666666666666,77
+Editar curso: 🔒 O Mundo dos Agents | Classplay,/course/view.php,28,3,39.625,63
+Curso: O Mundo dos Agentes | Classplay,/course/view.php,27,2,27.166666666666668,76
+Curso: Masterclasses | Classplay,/course/view.php,26,18,71.79166666666667,84
+Editar curso: O Mundo dos Agents | Classplay,/course/view.php,25,2,77.6,51
+Erro | Classplay,/auth/oauth2/login.php,25,9,6,71
+Editar curso: Dannemann [IA + Law] | Classplay,/course/view.php,24,4,380.2857142857143,49
+Curso: Onboarding de Professores | Classplay,/course/view.php,23,8,22.6875,61
+Curso: 🔒 O Mundo dos Agents | Classplay,/course/view.php,23,3,40.333333333333336,50
+Search | Administration | Classplay,/admin/search.php,23,1,15,48
+"Seção: 🔒 Crie tom de voz, estilo, personas e muito mais com ferramentas de IA. | 🔒 IA + Branding | Classplay",/course/view.php,23,2,22,62
+Editar curso: O Básico de IA Generativa no Marketing Digital | Classplay,/course/view.php,22,1,92.83333333333333,51
+Classplay: Participantes | Classplay,/user/index.php,21,7,30.166666666666668,61
+Curso: IA + Branding | Classplay,/course/view.php,21,5,39.63636363636363,51
+Curso: Imagem & Vídeo | Classplay,/course/view.php,21,10,133.78571428571428,61
+Código HTML adicional | Aparência | Administração | Classplay,/admin/settings.php,21,3,46.083333333333336,64
+Home | Classplay,/,21,1,23.75,55
+WOW Templo,/turmas-templo/controle-templo/wow-templo,21,11,23.055555555555557,33
+Editar curso: IA + Branding | Classplay,/course/view.php,20,3,30.2,44
+Editar curso: O Básico de IAGen no Marketing Digital | Classplay,/course/view.php,20,2,278.2,42
+Logs | Classplay,/report/log/index.php,20,3,241.6,60
+Editar curso: Freemium Simulado | Classplay,/course/view.php,19,1,172.33333333333334,41
+Meus cursos | Classplay,/my/courses.php,19,9,20.583333333333332,41
+Curso: Dannemann [IA + Law] | Classplay,/course/view.php,18,6,39.888888888888886,56
+Curso: Freemium Simulado | Classplay,/course/view.php,18,1,139,52
+Curso: O Básico de IAGen no Marketing Digital | Classplay,/course/view.php,18,6,24.714285714285715,47
+Notificações | Classplay,/message/output/popup/notifications.php,17,15,14.533333333333333,39
+Purge caches | Development | Administration | Classplay,/admin/purgecaches.php,17,1,21,58
+Editar curso: Análise de Dados | Classplay,/course/view.php,16,1,106,37
+Lista de usuários | Contas | Usuários | Administração | Classplay,/admin/user.php,16,5,14,47
+Acrescentar um coorte | Classplay,/cohort/edit.php,15,3,21.125,56
+Classplay: Relatório de atividade | Classplay,/report/log/user.php,15,4,21,35
+IntroIAG: Participantes | Classplay,/user/index.php,15,3,13.333333333333334,34
+Preferências | Classplay,/user/preferences.php,15,9,10.909090909090908,46
+Competências do curso | Classplay,/admin/tool/lp/coursecompetencies.php,14,12,8.461538461538462,42
+Curso: Análise de Dados | Classplay,/course/view.php,14,4,49.75,32
+Curso: Engenharia de Prompts | Classplay,/course/view.php,14,5,377.6666666666667,54
+Curso: O Básico de IA Generativa no Marketing Digital | Classplay,/course/view.php,14,2,40.375,33
+Curso: 🔒 Imagem & Vídeo | Classplay,/course/view.php,14,4,24.571428571428573,31
+Editar curso: Engenharia de Prompts | Classplay,/course/view.php,14,1,91.66666666666667,33
+Editar curso: Imagem & Vídeo | Classplay,/course/view.php,14,1,291.6666666666667,35
+Editar curso: Lápis Raro | Classplay,/course/view.php,14,2,48.857142857142854,33
+Editar curso: O Básico de IA no Marketing | Classplay,/course/view.php,14,1,103.33333333333333,34
+Install plugins | Plugins | Administration | Classplay,/admin/tool/installaddon/index.php,14,1,26.666666666666668,77
+"Editar Seção: 🔒 Crie tom de voz, estilo, personas e muito mais com ferramentas de IA. | 🔒 IA + Branding | Classplay",/course/view.php,13,2,48.333333333333336,26
+Editar curso: 🔒 O Básico de IAGen no Marketing Digital | Classplay,/course/view.php,13,1,227,31
+Editar Área de texto e mídia: Quer acessar esse curso e aprender como você pode ... | OPMKT-FREE | Classplay,/course/modedit.php,13,1,2.5,49
+LAPISRARO.0925T1: Playbook de Desafios - Módulo 1 | Classplay,/mod/resource/view.php,13,11,36.75,29
+Turma Formação de Professores,/turmas-templo/controle-templo/turma-formao-de-professores,13,2,0.1875,32
+casos-uso: Participantes | Classplay,/user/index.php,13,9,18.23076923076923,32
+Editar Área de texto e mídia: Quer acessar esse curso e aprender todo o básico p... | MINI-BASICOMKT-FREE | Classplay,/course/modedit.php,12,1,2,48
+Estratégia 2025,/turmas-templo/controle-templo/wow-templo/controle/estratgia-2025,12,4,52.8,17
+WOW Templo,/WOW-Templo-1755c644545480fdb4a1fbe8d5b8e4ac,12,2,40.5,37
+Curso: IA para Advogados | Classplay,/course/view.php,11,3,26.428571428571427,28
+DANNEMANNIA .0225T1: Participantes | Classplay,/user/index.php,11,2,17.75,24
+Editar curso: Freemium Simulado 2 | Classplay,/course/view.php,11,1,79.5,27
+Inscrição em coorte por campo de perfil | Classplay,/local/profilecohort/cohorts.php,11,2,4.888888888888889,43
+Lixeira | Classplay,/admin/tool/recyclebin/index.php,11,2,29,31
+Progresso da cópia do curso | Classplay,/backup/copyprogress.php,11,2,46.375,37
+Turma JBS - IA + MKT,/turmas-templo/controle-templo/turma-jbs-ia-mkt,11,5,18.375,13
+casos-uso | Classplay,/enrol/index.php,11,5,14.2,35
+Editar curso: Operações de Marketing | Classplay,/course/view.php,10,1,61.5,23
+Editar Área de texto e mídia: Inteligência Artificial: O Hype e a Realidade | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,10,1,13.75,35
+Editar Área de texto e mídia: Quer acessar esse curso e aprender como utilizar I... | IMGMVIDEO-FREE | Classplay,/course/modedit.php,10,1,9,42
+Editar Área de texto e mídia: Quer acessar esse curso e aprender como utilizar I... | MINI-IMAGEMVIDEO-FREE | Classplay,/course/modedit.php,10,1,2,40
+IAG-MKTDigital: Participantes | Classplay,/user/index.php,10,3,5.428571428571429,23
+LAPISRARO.0925T1: Apresentação Onboarding Classplay | Classplay,/mod/resource/view.php,10,8,8.636363636363637,24
+Novo Área de texto e mídia | MINI-IMAGEMVIDEO-FREE_1 | Classplay,/course/modedit.php,10,1,2,40
+PROMPTS: Participantes | Classplay,/user/index.php,10,2,4.625,20
+Classplay: teste classplay | Classplay,/mod/forum/discuss.php,9,5,4.8,26
+Curso: IA Generativa no Marketing Digital | Classplay,/course/view.php,9,1,137.5,27
+Editar Seção: Aula 1 - Criação e Edição de Imagens com IA | FCA: Formação de Talentos | Classplay,/course/view.php,9,1,56,19
+Editar curso: 🔒 IA para Advogados | Classplay,/course/view.php,9,1,243,20
+Educação,/turmas-templo/controle-templo/wow-templo/controle/estratgia-2025/okrs-por-equipe/okrs-2025-educao,9,3,4.555555555555555,21
+MÓDULO 3 - Agentes de IA,/turmas-templo/controle-templo/turma-jbs-ia-mkt/mdulo-3-agentes-de-ia,9,4,6.888888888888889,19
+Novo Área de texto e mídia | TEMPLO.FCA | Classplay,/course/modedit.php,9,3,13.8,40
+Relatórios | Classplay,/report/view.php,9,4,13.333333333333334,27
+Biblioteca de Ferramentas,/turmas-templo/controle-templo/ferramentas-0425,8,5,10.833333333333334,9
+Configurações avançadas de tema | Aparência | Administração | Classplay,/admin/settings.php,8,2,10.333333333333334,19
+Construa Seu Prompt,/turmas-templo/controle-templo/construa-seu-prompt,8,7,12.125,16
+Controle,/turmas-templo/controle-templo/wow-templo/controle,8,1,31.5,8
+Controle - Templo,/turmas-templo/controle-templo,8,4,23.666666666666668,12
+Curso: O Básico de IA no Marketing | Classplay,/course/view.php,8,2,25.5,19
+Curso: 🔒 O Básico de I.A no Marketing | Classplay,/course/view.php,8,1,16.333333333333332,17
+LAPISRARO.0925T1: Participantes | Classplay,/user/index.php,8,8,18.25,22
+MÓDULO 1 - Fundamentos e Engenharia de Prompts,/turmas-templo/controle-templo/turma-jbs-ia-mkt/mdulo-1-fundamentos-e-engenharia-de-prompts,8,3,65.5,15
+Rituais do Templo,/turmas-templo/controle-templo/wow-templo/rituais-do-templo,8,4,23.875,11
+AGENTS-FREE: Participantes | Classplay,/user/index.php,7,2,11,17
+Classplay: Relatório de atividade | Classplay,/report/outline/user.php,7,2,4.25,20
+Curso: 🔒 IA para Advogados | Classplay,/course/view.php,7,5,14,18
+Curso: 🔒 Operações de Marketing | Classplay,/course/view.php,7,1,22.666666666666668,17
+"Editar seção: 🔒 Crie tom de voz, estilo, personas e muito mais com ferramentas de IA. | MINI.BRANDING-FREE | Classplay",/course/editsection.php,7,1,69,22
+Editar Área de texto e mídia: COMECE POR AQUI O que você quer resolver hoje? Fale s... | Classplay,/course/modedit.php,7,3,22.25,17
+FERRAMENTAS: Participantes | Classplay,/user/index.php,7,3,2.75,16
+Instalar plugins | Plugins | Administração | Classplay,/admin/tool/installaddon/index.php,7,1,1.75,16
+Limpar caches | Desenvolvimento | Administração | Classplay,/admin/purgecaches.php,7,1,3.6666666666666665,17
+PODCASTS: Participantes | Classplay,/user/index.php,7,2,5.5,15
+Permissões em Curso: Introdução à IA Generativa | Classplay,/admin/roles/permissions.php,7,1,135.66666666666666,14
+Prompts para Recursos Humanos,/turmas-templo/controle-templo/automao-para-rh/prompts-para-recursos-humanos,7,5,16.5,9
+AGENTESIA: Participantes | Classplay,/user/index.php,6,2,3.1666666666666665,13
+Atividades do curso: Agente Generativo | Classplay,/course/overview.php,6,5,9.2,18
+Classplay: Perfil público (Página padrão de perfil) | Classplay,/user/profilesys.php,6,2,2.25,16
+Curso: Freemium Simulado 2 | Classplay,/course/view.php,6,1,21,18
+Curso: Webinars | Classplay,/course/view.php,6,5,24.8,15
+Curso: 🔒 IA Generativa no Marketing Digital | Classplay,/course/view.php,6,3,22.833333333333332,16
+Cursos | Aparência | Administração | Classplay,/admin/settings.php,6,2,28.333333333333332,15
+Debugging | Development | Administration | Classplay,/admin/settings.php,6,1,54.5,24
+EBOOKS: Participantes | Classplay,/user/index.php,6,2,2.1666666666666665,12
+Editar Seção: Aula Extra - Engenharia de Prompts | FCA: Formação de Talentos | Classplay,/course/view.php,6,2,45.333333333333336,12
+Editar seção: | LLMS | Classplay,/course/editsection.php,6,2,10,19
+Editar Área de texto e mídia: Quer acessar esse curso e aprender tudo sobre o us... | MINI.BRANDING-FREE | Classplay,/course/modedit.php,6,1,0,24
+Guia de Cultura,/turmas-templo/controle-templo/wow-templo/guia-de-cultura,6,3,20.5,6
+IA-Advogados: Participantes | Classplay,/user/index.php,6,3,3.5,13
+Lista de Agentes GPT Avançados,/turmas-templo/controle-templo/automao-para-rh/lista-de-agentes-gpt-avanados/lista-de-agentes-gpt-avanados,6,1,19.5,6
+MASTERCLASSES: Participantes | Classplay,/user/index.php,6,2,2.3333333333333335,12
+MINI-BRANDING: Participantes | Classplay,/user/index.php,6,3,1.6,10
+MINI-PROMPTS: Participantes | Classplay,/user/index.php,6,2,5,13
+Novo Área de texto e mídia | AGENTS-FREE | Classplay,/course/modedit.php,6,1,1,23
+Novo Área de texto e mídia | IAGMKT-FREE | Classplay,/course/modedit.php,6,1,1,24
+Novo Área de texto e mídia | MINI-BASICOMKT-FREE | Classplay,/course/modedit.php,6,1,0,24
+Novo Área de texto e mídia | OPMKT-FREE | Classplay,/course/modedit.php,6,1,3,25
+Onboarding Templo,/turmas-templo/controle-templo/wow-templo/controle/onboarding-templo,6,5,6.5,9
+Prompts para Marketing,/automacao/biblioteca-de-prompts,6,5,53.8,7
+Sheila Moraes: Perfil público | Classplay,/user/profile.php,6,2,11.333333333333334,16
+TEMPLO.FCA: Participantes | Classplay,/user/index.php,6,1,9.5,12
+Adicionar um novo curso | Classplay,/course/edit.php,5,3,25.666666666666668,18
+Aprenda Rápido: Mini Cursos Temáticos,/conteudo/cursos/mini-cursos-tematicos,5,4,13.4,5
+Atração e Recrutamento de Talento,/turmas-templo/controle-templo/automao-para-rh/prompts-para-recursos-humanos/atrao-e-recrutamento-de-talento,5,1,7.75,9
+Classplay: Aviso lorem ipsum | Classplay,/mod/forum/discuss.php,5,5,3.6,13
+Classplay: Modificar perfil | Classplay,/user/edit.php,5,4,57,15
+Configurações HTML | Aparência | Administração | Classplay,/admin/settings.php,5,1,9,13
+Curso: Operações de Marketing | Classplay,/course/view.php,5,2,50,14
+Curso: Podcasts | Classplay,/course/view.php,5,2,402.3333333333333,21
+Curso: Tutoriais | Classplay,/course/view.php,5,4,18.6,13
+Curso: 🔒 O Básico de IAGen no Marketing Digital | Classplay,/course/view.php,5,2,14,13
+Editar AI Prompts: Prompts | PROMPTS | Classplay,/course/modedit.php,5,2,7.333333333333333,13
+Editar seção: Aula Extra - Engenharia de Prompts | TEMPLO.FCA | Classplay,/course/editsection.php,5,2,1.3333333333333333,22
+Editar seção: Seção 1 | LLMS | Classplay,/course/editsection.php,5,1,143,19
+Erro | Classplay,/mod/aiagents/resource.php,5,5,6.6,15
+IAG-MKTDigital | Classplay,/enrol/index.php,5,1,26,16
+IAGMKT-FREE: Participantes | Classplay,/user/index.php,5,1,17.5,12
+LAPISRARO.0925T1: Apresentação Masterclass | Classplay,/mod/resource/view.php,5,5,16,15
+LLMS: Participantes | Classplay,/user/index.php,5,3,5.333333333333333,12
+MINI-BASICOMKT: Participantes | Classplay,/user/index.php,5,2,1.75,10
+Navegação | Aparência | Administração | Classplay,/admin/settings.php,5,3,7.5,13
+Notifications | Administration | Classplay,/admin/index.php,5,1,15,11
+Novo Arquivo | LAPISRARO.0925T1 | Classplay,/course/modedit.php,5,2,66.66666666666667,29
+Novo Área de texto e mídia | IAADV-FREE | Classplay,/course/modedit.php,5,1,1,21
+Novo Área de texto e mídia | MINI.BRANDING-FREE | Classplay,/course/modedit.php,5,2,3.6666666666666665,22
+TEMPLOONB.0725T1: Diretrizes para Professores(a) | Classplay,/mod/resource/view.php,5,1,10,13
+TUTORIAIS: Participantes | Classplay,/user/index.php,5,1,2.4,10
+Todos os coortes | Classplay,/cohort/index.php,5,2,8.6,9
+Turma Dannemann - IA + LAW,/turmas-templo/controle-templo/turma-dannemann-ia-law,5,1,34,5
+WEBINARS: Participantes | Classplay,/user/index.php,5,1,2.2,10
+WOW Templo [ways of work],/WOW-Templo-ways-of-work-1755c644545480fdb4a1fbe8d5b8e4ac,5,2,48.333333333333336,17
+Construa Seu Prompt,/Construa-Seu-Prompt-1655c644545480959699d20c9c02ce7c,4,1,1,8
+Cultura Templo,/turmas-templo/controle-templo/wow-templo/cultura-templo,4,2,17.666666666666668,5
+Curso: BRASAS | Classplay,/course/view.php,4,2,10.333333333333334,11
+Editar Seção: Seção 1 | Modelos de IA | Classplay,/course/view.php,4,1,37,8
+"Editar Área de texto e mídia: Crie tom de voz, estilo, personas e muito mais com... | MINI.BRANDING-FREE | Classplay",/course/modedit.php,4,1,7,14
+Editar Área de texto e mídia: Descubra o que você vai encontrar nos 5 módulos do... | IAG-MKTDigital | Classplay,/course/modedit.php,4,1,5.666666666666667,14
+Editar Área de texto e mídia: Masterclass | IntroIAG | Classplay,/course/modedit.php,4,1,6,17
+Editar Área de texto e mídia: Quer acessar esse curso e aprender todo o básico d... | IAGMKT-FREE | Classplay,/course/modedit.php,4,1,1,16
+Editar Área de texto e mídia: Você está prestes a iniciar uma formação que não f... | TEMPLO.FCA | Classplay,/course/modedit.php,4,1,11,17
+Editar Área de texto e mídia: Área de texto e mídia | MINI.BRANDING-FREE | Classplay,/course/modedit.php,4,1,2.5,14
+Ferramentas externas LTI | Classplay,/mod/lti/coursetools.php,4,1,7.5,12
+MINI-DADOS: Participantes | Classplay,/user/index.php,4,2,5,9
+MINI-IMAGEMVIDEO: Participantes | Classplay,/user/index.php,4,2,3,8
+Mudar papel para... | Classplay,/course/switchrole.php,4,2,1.5,9
+MundoAgents: Participantes | Classplay,/user/index.php,4,1,2.25,8
+MundoAgents: Workflow - Do Tom de Voz à Postagem | Classplay,/mod/resource/view.php,4,1,10,12
+Natalie Chamberlain: Perfil público | Classplay,/user/profile.php,4,1,21,12
+Notar | Classplay,/course/loginas.php,4,2,4.5,16
+Novo Área de texto e mídia | TEMPLOFRE.0125T1 | Classplay,/course/modedit.php,4,1,3,17
+OPMARKETING: Participantes | Classplay,/user/index.php,4,2,2.75,8
+PROMPTSFREE: Participantes | Classplay,/user/index.php,4,2,21,12
+Perfil dos Monges,/turmas-templo/controle-templo/wow-templo/perfil-dos-monges,4,1,2.6666666666666665,5
+Relatório do usuário | Agente Generativo | Classplay,/grade/report/user/index.php,4,4,7.5,12
+Repositório de Conteúdos,/turmas-templo/controle-templo/wow-templo/controle/repositrio-de-contedos,4,2,16.75,8
+Seção: Seção 2 | 🔒 IA + Branding | Classplay,/course/view.php,4,2,3,12
+TEMPLO.FCA: Apresentação aula 1 - módulo 1 | Classplay,/mod/resource/view.php,4,4,36.4,11
+TEMPLOONB.0725T1: Manual dos Saberes | Classplay,/mod/resource/view.php,4,1,8,11
+TEMPLOONB.0725T1: Participantes | Classplay,/user/index.php,4,3,6,9
+Templates | Aparência | Administração | Classplay,/admin/settings.php,4,3,1.5,12
+Agentes GPT para Recursos Humanos,/turmas-templo/controle-templo/automao-para-rh/lista-de-agentes-gpt-avanados,3,2,11.5,3
+Agentes IA,/automacao/agentes-prontos,3,3,15.333333333333334,3
+Atividades do curso: O Mundo dos Agentes | Classplay,/course/overview.php,3,1,9.5,9
+Banco de conteúdo | Classplay,/contentbank/index.php,3,3,17,9
+Bancos de questões | Classplay,/question/banks.php,3,3,2.6666666666666665,9
+Calendário | Aparência | Administração | Classplay,/admin/settings.php,3,2,16,8
+Classplay | Home,/ee0a74cee3f5490c89f562e291580e07,3,2,4.5,5
+Curso: Template Padrão | Classplay,/course/view.php,3,2,8,7
+Curso: 🔒 O Básico da IA Generativa no Marketing Digital | Classplay,/course/view.php,3,1,233,9
+Cursos | Blocos | Plugins | Administração | Classplay,/admin/settings.php,3,1,4,9
+EBOOKS: Manual de IAG para Treinamento e Desenvolvimento Organizacional | Classplay,/mod/resource/view.php,3,3,4.333333333333333,7
+Editar Seção: Clique no botão para acessar o Chat GPT! | Modelos de IA | Classplay,/course/view.php,3,2,16.5,9
+Editar Seção: Clique no botão para acessar o Claude! | Modelos de IA | Classplay,/course/view.php,3,1,14.5,7
+Editar Seção: Materiais Complementares | IA Generativa no Marketing Digital | Classplay,/course/view.php,3,1,190,7
+Editar Seção: MÓDULO 1 - Texto e IA Generativa | FCA: Formação de Talentos | Classplay,/course/section.php,3,1,19,7
+Editar curso: Template Padrão | Classplay,/course/view.php,3,2,26,7
+Editar seção: Aula 1 - Criação e Edição de Imagens com IA | TEMPLO.FCA | Classplay,/course/editsection.php,3,1,3,12
+Editar seção: Clique no botão para acessar o Chat GPT! | LLMS | Classplay,/course/editsection.php,3,2,8.5,12
+Editar seção: Materiais Complementares | IAG-MKTDigital. Freemium | Classplay,/course/editsection.php,3,1,26,13
+Editar Área de texto e mídia: Acessar Agentes | LLMS | Classplay,/course/modedit.php,3,1,33,7
+Editar Área de texto e mídia: Aplicação: Como extrair o seu tom de voz e aplicar ao seu Agente | MundoAgents | Classplay,/course/modedit.php,3,1,5.5,12
+Editar Área de texto e mídia: Aula 3 | TEMPLO.FCA | Classplay,/course/modedit.php,3,2,3.5,15
+Editar Área de texto e mídia: ChatGPT e Playground | IntroIAG | Classplay,/course/modedit.php,3,1,5,11
+Editar Área de texto e mídia: Como a IA pode ajudar a fazer as principais atividades do marketing digital | IAG-MKTDigital | Classplay,/course/modedit.php,3,1,39,10
+Editar Área de texto e mídia: Descubra como a Inteligência Artificial está trans... | TEMPLOFRE.0125T1 | Classplay,/course/modedit.php,3,1,4,13
+Editar Área de texto e mídia: Descubra o poder do Advanced Data Analysis no Chat... | MINI-DADOS | Classplay,/course/modedit.php,3,1,5,8
+Editar Área de texto e mídia: Mãos à Obra: Construindo Seu Primeiro Agent - Parte 1 | MundoAgents Freemium | Classplay,/course/modedit.php,3,1,21,16
+Editar Área de texto e mídia: Mãos à Obra: Construindo Seu Primeiro Agente | MundoAgents | Classplay,/course/modedit.php,3,1,5,13
+Editar Área de texto e mídia: Mãos à Obra: Evoluindo Seu Agent - Parte 3 | MundoAgents | Classplay,/course/modedit.php,3,1,11,8
+"Editar Área de texto e mídia: Para ter acesso ao material completo, incluindo cu... | MINI.BRANDING-FREE | Classplay",/course/modedit.php,3,1,3.5,13
+Editar Área de texto e mídia: Produtividade com IA: Casos de Uso e Análise Efeitos | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,3,1,4.666666666666667,10
+Editar Área de texto e mídia: Quer acessar esse curso e aprender tudo sobre o uso de I.A para construção de marca? Solicite acesso ao curso completo em (redacted) | MINI.BRANDING-FREE | Classplay,/course/modedit.php,3,1,2,10
+Editar Área de texto e mídia: label491 | MundoAgents Freemium | Classplay,/course/modedit.php,3,1,47,9
+Erro | Classplay,/user/index.php,3,2,2.5,10
+Formulário de registro | Classplay,/admin/tool/brickfield/registration.php,3,1,8,8
+Giulia Wada: Perfil público | Classplay,/user/profile.php,3,2,25.5,9
+Grupos | Classplay,/group/overview.php,3,3,12,8
+Introdução à Inteligência Artificial Generativa,/conteudo/cursos/introducao-iagen,3,2,11.5,3
+Logos | Aparência | Administração | Classplay,/admin/settings.php,3,2,5,7
+MINI.BRANDING-FREE: Participantes | Classplay,/user/index.php,3,2,5.333333333333333,8
+MundoAgents : Workflow - Do Tom de Voz à Postagem | Classplay,/mod/resource/view.php,3,1,6,7
+MundoAgents: Criando seu Assistente IA - Parte 1 | Classplay,/mod/resource/view.php,3,3,9.666666666666666,7
+Módulos do Curso,/1cb5c644545481c49e13d71c912f4e6f,3,1,100,3
+Novo Área de texto e mídia | LAPISRARO.0925T1 | Classplay,/course/modedit.php,3,2,19,12
+O Básico de IAGen no MKT Digital,/conteudo/cursos/introducao-iag-no-mkt-digital,3,3,165,3
+Onboarding de Professores(as),/turmas-templo/controle-templo/wow-templo/controle/sala-dos-professores,3,2,52.666666666666664,7
+Prompts Freemium | Classplay,/mod/aiprompts/area.php,3,1,18,10
+Seção: . | Modelos de IA | Classplay,/course/view.php,3,1,4,7
+Seção: Criando consistência de tom de voz e estilo para a sua marca com Custom Instructions | IA + Branding | Classplay,/course/view.php,3,2,5,7
+TEMPLO.FCA | Classplay,/enrol/index.php,3,1,7,8
+TEMPLO.FCA: Apresentação Aula 1 Módulo 3 | Classplay,/mod/resource/view.php,3,2,9,7
+TEMPLO.FCA: Apresentação aula 2/3/extra - módulo 1 | Classplay,/mod/resource/view.php,3,3,5.25,8
+Thiago Manojo: Perfil público | Classplay,/user/profile.php,3,1,39,8
+Todos os cursos | Classplay,/course/index.php,3,2,5,8
+Turma Brasas 2 - IA+Edu,/turmas-templo/controle-templo/turma-brasas-iaedu,3,2,12.5,4
+Vincenzo Zandoná: Perfil público | Classplay,/user/profile.php,3,1,6.5,4
+Workflows,/automacao/workflows,3,3,25.666666666666668,5
+AGENTS-FREEMIUM: Participantes | Classplay,/user/index.php,2,1,157,3
+Acylino do Amaral Mariano Junior: Perfil público | Classplay,/user/profile.php,2,2,10,6
+Adicionar um novo usuário | Contas | Usuários | Administração | Classplay,/user/editadvanced.php,2,1,3.6666666666666665,5
+Agente Generativo: Perfil pessoal: Acylino do Amaral Mariano Junior | Classplay,/user/view.php,2,1,25,4
+Assinantes | Classplay,/mod/forum/subscribers.php,2,1,15,6
+Atividades do curso: Biblioteca de Prompts | Classplay,/course/overview.php,2,2,5,6
+Atividades do curso: Ferramentas | Classplay,/course/overview.php,2,2,7,6
+Atividades do curso: Introdução à IA Generativa | Classplay,/course/overview.php,2,2,4.5,6
+Atividades do curso: Lápis Raro | Classplay,/course/overview.php,2,2,1,6
+Atividades do curso: Modelos de IA | Classplay,/course/overview.php,2,1,8,6
+Atividades do curso: O Básico de IAGen no Marketing Digital | Classplay,/course/overview.php,2,1,1,5
+Atividades do curso: Podcasts | Classplay,/course/overview.php,2,2,5,6
+Avisos | Administração | Classplay,/admin/index.php,2,1,0,2
+BRASASJOR.0925T1: Participantes | Classplay,/user/index.php,2,1,69,7
+Biblioteca de Agentes: Perfil pessoal: Camilla Magalhaes Silva | Classplay,/user/view.php,2,1,0,4
+Biblioteca de Agentes: Perfil pessoal: Eder Antonio Milani Bernardes | Classplay,/user/view.php,2,1,1,5
+Classplay: Logs da última hora | Classplay,/report/loglive/index.php,2,2,6.5,4
+Classplay: teste classplay: teste classplay | Classplay,/mod/forum/post.php,2,1,20,10
+Configurações de filtro em Curso: 🔒 O Mundo dos Agents | Classplay,/filter/manage.php,2,1,12,6
+Configurações padrão dos cursos | Configurações padrão | Cursos | Administração | Classplay,/admin/settings.php,2,1,57,6
+Contato do Templo,/turmas-templo/controle-templo/contato-do-templo,2,2,8,3
+Controle,/Controle-17a5c644545480bca6f1cbd4b47816ab,2,1,94,2
+Coortes | Classplay,/cohort/index.php,2,1,5,6
+Cores do cartão do curso. | Aparência | Administração | Classplay,/admin/settings.php,2,1,14,5
+Current release information | Classplay,/admin/index.php,2,1,6,10
+Curso:  Acessar Agentes | Classplay,/course/view.php,2,1,7,4
+Cursos,/conteudo/cursos,2,2,6.5,2
+DANNEMANNIA .0225T1: Playlist de Estudos Módulo 1 | Classplay,/mod/resource/view.php,2,2,11,5
+Demonstrações ao usuário | Aparência | Administração | Classplay,/admin/tool/usertours/configure.php,2,1,2.5,5
+Documentação: Classplay - Moodle,/turmas-templo/controle-templo/wow-templo/controle/repositrio-de-contedos/documentao-classplay-moodle,2,1,13,4
+EBOOKS: What Are ChatGPT and Its Friends? | Classplay,/mod/resource/view.php,2,2,6,5
+Editar AI Agents: Agentes IA | AGENTESIA | Classplay,/course/modedit.php,2,2,2.5,4
+Editar AI Prompts: Prompts Freemium | PROMPTSFREE | Classplay,/course/modedit.php,2,1,18,7
+Editar Arquivo: Apresentação aula 1 - módulo 1 | TEMPLO.FCA | Classplay,/course/modedit.php,2,1,3,7
+Editar Arquivo: Workflow - Do Tom de Voz à Postagem | MundoAgents | Classplay,/course/modedit.php,2,1,62,6
+Editar Seção: Aula 2 - Criando com IA: Textos e Prompting Estratégico | FCA: Formação de Talentos | Classplay,/course/view.php,2,1,27,4
+Editar Seção: Clique no botão para acessar | Modelos de IA | Classplay,/course/view.php,2,1,12,4
+Editar Seção: Criando consistência de tom de voz e estilo para a sua marca com Custom Instructions | IA + Branding | Classplay,/course/view.php,2,2,1.5,3
+Editar Seção: Módulo 1 - Advanced Data Analysis | Análise de Dados | Classplay,/course/view.php,2,1,25,6
+Editar Seção: Módulo 1 - O que são prompts? Prompts Básicos | Engenharia de Prompts | Classplay,/course/view.php,2,1,25,5
+Editar Seção: Módulo 1 | 🔒 IA + Branding | Classplay,/course/view.php,2,1,35,4
+"Editar Seção: Módulo 2 - Meta Prompts e Prompts Recursivos (COT, TOT) | Engenharia de Prompts | Classplay",/course/view.php,2,1,152,6
+Editar Seção: Seção 3 | Modelos de IA | Classplay,/course/view.php,2,1,27,5
+Editar curso: BRASAS | Classplay,/course/view.php,2,1,40,4
+Editar curso: BRASASJOR.0925T1 | Classplay,/course/view.php,2,1,27,4
+Editar curso: Onboarding de Professores | Classplay,/course/view.php,2,2,20,5
+Editar curso: 🔒 IA Generativa no Marketing Digital | Classplay,/course/view.php,2,1,23,5
+Editar opções da categoria | Classplay,/course/editcategory.php,2,2,6.5,7
+Editar seção: . | LLMS | Classplay,/course/editsection.php,2,1,5,7
+Editar seção: Aula 2 - Criando com IA: Textos e Prompting Estratégico | TEMPLO.FCA | Classplay,/course/editsection.php,2,1,2,9
+Editar seção: Brainstorm de Marketing com ChatGPT | OPMKT-FREE | Classplay,/course/editsection.php,2,1,0.5,9
+Editar seção: Clique no botão para acessar o Claude! | LLMS | Classplay,/course/editsection.php,2,1,6,8
+Editar seção: Criando consistência de tom de voz e estilo para a sua marca com Custom Instructions | MINI.BRANDING-FREE | Classplay,/course/editsection.php,2,1,29,8
+"Editar seção: Crie tom de voz, estilo, personas e muito mais com ferramentas de IA. | MINI.BRANDING-FREE | Classplay",/course/editsection.php,2,1,1.5,8
+Editar seção: Módulo 1 - Advanced Data Analysis | MINI-DADOS | Classplay,/course/editsection.php,2,1,0,8
+Editar seção: Módulo 1 - O que são prompts? Prompts Básicos | MINI-PROMPTS | Classplay,/course/editsection.php,2,1,0,8
+Editar seção: Módulo 1 | IntroIAG | Classplay,/course/editsection.php,2,1,1,5
+"Editar seção: Módulo 2 - Meta Prompts e Prompts Recursivos (COT, TOT) | MINI-PROMPTS | Classplay",/course/editsection.php,2,1,0,8
+Editar seção: Módulo 2 | IntroIAG | Classplay,/course/editsection.php,2,1,1,5
+Editar seção: Seção 3 | LLMS | Classplay,/course/editsection.php,2,1,11,8
+Editar Área de texto e mídia: Aplicando Framework de Agentes | MundoAgents | Classplay,/course/modedit.php,2,1,4.5,8
+Editar Área de texto e mídia: Aplicando Framework de Agents | MundoAgents | Classplay,/course/modedit.php,2,1,5.5,6
+Editar Área de texto e mídia: Aplicação: Como extrair o seu tom de voz e aplicar ao seu agent | MundoAgents | Classplay,/course/modedit.php,2,1,8.5,7
+"Editar Área de texto e mídia: Aplicação: utilizando o seu agent para criar planejamento, imagens e posts | MundoAgents | Classplay",/course/modedit.php,2,1,9.5,6
+Editar Área de texto e mídia: Aprenda como funcionam chatbots e ferramentas de I... | TEMPLO2FR.0125T1 | Classplay,/course/modedit.php,2,1,4,8
+Editar Área de texto e mídia: Aula 2 - Modulo 2 | TEMPLO.FCA | Classplay,/course/modedit.php,2,2,3,6
+Editar Área de texto e mídia: Como a IA generativa está revolucionando o mundo do marketing | IAG-MKTDigital | Classplay,/course/modedit.php,2,1,8.5,6
+Editar Área de texto e mídia: Como estudar? | MundoAgents | Classplay,/course/modedit.php,2,1,1.5,6
+Editar Área de texto e mídia: Continue a explorar as capacidades avançadas do Ch... | MINI-DADOS | Classplay,/course/modedit.php,2,1,0.5,8
+"Editar Área de texto e mídia: Dados, privacidade e ética: Segurança na Era da IA | IA-Advogados | Classplay",/course/modedit.php,2,1,3.5,10
+Editar Área de texto e mídia: Descobrindo Agents: Arquitetura e Aplicações | MundoAgents | Classplay,/course/modedit.php,2,1,6,6
+Editar Área de texto e mídia: Desvendando os Mistérios da IA Generativa - Parte I | IntroIAG | Classplay,/course/modedit.php,2,1,12,7
+Editar Área de texto e mídia: Desvendando os Mistérios da IA Generativa - Primeira Sessão | IntroIAG | Classplay,/course/modedit.php,2,1,4,5
+Editar Área de texto e mídia: Dominando as Ferramentas Avançadas do ChatGPT | IntroIAG | Classplay,/course/modedit.php,2,1,4,6
+Editar Área de texto e mídia: Estudos de caso: Tendências de futuro no universo dos Agentes | MundoAgents | Classplay,/course/modedit.php,2,1,1.5,8
+Editar Área de texto e mídia: Evoluindo Seu Agente: Integrando com o seu Google Agenda (Parte 1) | MundoAgents | Classplay,/course/modedit.php,2,1,7,7
+Editar Área de texto e mídia: Evoluindo Seu Agente: Integrando com o seu Google Agenda (Parte 2) | MundoAgents | Classplay,/course/modedit.php,2,1,5.5,8
+Editar Área de texto e mídia: Explorando o Ecossistema OpenAI: GPT Store e agents da comunidade | MundoAgents | Classplay,/course/modedit.php,2,1,8.5,6
+Editar Área de texto e mídia: Explore como dominar a engenharia de prompts pode ... | MINI-BRANDING | Classplay,/course/modedit.php,2,1,0,8
+Editar Área de texto e mídia: Ilustradores e Designers: esse módulo é para vocês :) | IAG-MKTDigital | Classplay,/course/modedit.php,2,1,4,9
+Editar Área de texto e mídia: Mistral e Grok | IntroIAG | Classplay,/course/modedit.php,2,1,5,9
+Editar Área de texto e mídia: Mãos à Obra: Construindo Seu Primeiro Agent - Parte 1 | MundoAgents | Classplay,/course/modedit.php,2,1,5,6
+Editar Área de texto e mídia: Mãos à Obra: Construindo Seu Primeiro Agent - Parte 2 | MundoAgents | Classplay,/course/modedit.php,2,1,4.5,6
+"Editar Área de texto e mídia: Na aula, você vai aprender a criar imagens educaci... | TEMPLO.FCA | Classplay",/course/modedit.php,2,2,1,9
+Editar Área de texto e mídia: Nessa aula você vai aprender como criar prompts ef... | TEMPLO.FCA | Classplay,/course/modedit.php,2,1,2,8
+Editar Área de texto e mídia: O que são Workflows de Agentes e quando usá-los | MundoAgents | Classplay,/course/modedit.php,2,1,2,8
+Editar Área de texto e mídia: O que são Workflows de agents e quando usá-los | MundoAgents | Classplay,/course/modedit.php,2,1,3.5,6
+Editar Área de texto e mídia: O que são prompts? Prompts Básicos | MINI-PROMPTS | Classplay,/course/modedit.php,2,1,3,6
+Editar Área de texto e mídia: O que são prompts? Segredos que ninguém te conta! | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,2,1,1,8
+Editar Área de texto e mídia: Por que os AI Agents mudam o paradigma da automação | MundoAgents | Classplay,/course/modedit.php,2,1,8.5,6
+Editar Área de texto e mídia: Por que os Agentes IA mudam o paradigma da automação | MundoAgents | Classplay,/course/modedit.php,2,1,8,8
+Editar Área de texto e mídia: Quer acessar esse curso e aprender como utilizar I... | MINI-IMAGEMVIDEO-FREE_1 | Classplay,/course/modedit.php,2,1,4,9
+Editar Área de texto e mídia: Quer acessar esse curso e dominar tudo sobre Agents? Solicite acesso ao curso completo em (redacted) | AGENTS-FREE | Classplay,/course/modedit.php,2,1,4,8
+Evidência de aprendizagem prévia | Classplay,/admin/tool/lp/user_evidence_list.php,2,1,6,6
+Fazer upload de coortes | Classplay,/cohort/upload.php,2,2,1.5,6
+Gerenciamento de usuário | Contas | Usuários | Administração | Classplay,/admin/settings.php,2,2,5.5,4
+IAADV-FREE: Participantes | Classplay,/user/index.php,2,1,8.5,6
+IMGMVIDEO-FREE: Participantes | Classplay,/user/index.php,2,2,8.5,6
+Inscrições manuais | Classplay,/enrol/editinstance.php,2,1,3,5
+MINI-IMAGEMVIDEO: Playlist: Conteúdos Extras | Classplay,/mod/resource/view.php,2,1,27,5
+MINI-PROMPTS: Conteúdos adicionais para você aprender ainda mais! | Classplay,/mod/resource/view.php,2,2,15,6
+Marketing,/turmas-templo/controle-templo/wow-templo/controle/estratgia-2025/okrs-por-equipe/orks-2025-marketing,2,2,47,2
+Modificar perfil: Acylino do Amaral Mariano Junior | | Classplay,/user/editadvanced.php,2,2,13,5
+MundoAgents : Tendências | Classplay,/mod/resource/view.php,2,1,6,5
+MÓDULO 4 - Estratégias para Implementação e Uso Responsável da IA no Direito,/turmas-templo/controle-templo/turma-dannemann-ia-law/mdulo-4-estratgias-para-implementao-e-uso-responsvel-da-ia-no-direito,2,2,0.5,4
+Nenhuma mensagem | Classplay,/mod/forum/user.php,2,1,1,5
+Novo AI Prompts | PROMPTSFREE | Classplay,/course/modedit.php,2,1,23,7
+Novo Área de texto e mídia | TEMPLO2FR.0125T1 | Classplay,/course/modedit.php,2,1,1,8
+OPMKT-FREE: Participantes | Classplay,/user/index.php,2,2,6.5,6
+Onboarding Templo,/Onboarding-Templo-1d75c6445454801aa6b6eae9ba98bc7e,2,1,2.5,3
+Permissões em Curso: Engenharia de Prompts | Classplay,/admin/roles/permissions.php,2,1,20,4
+Permissões em Curso: Prompts | Classplay,/admin/roles/permissions.php,2,1,24,4
+Planos de aprendizagem | Classplay,/admin/tool/lp/plans.php,2,1,7,6
+Plugins check | Classplay,/admin/index.php,2,1,6.5,10
+Registration | Administration | Classplay,/admin/registration/index.php,2,1,6,6
+Relatório do usuário | Introdução à IA Generativa | Classplay,/grade/report/user/index.php,2,2,9,6
+Relatório do usuário | Onboarding de Professores | Classplay,/grade/report/user/index.php,2,2,4,6
+Relatório do usuário | Podcasts | Classplay,/grade/report/user/index.php,2,2,9.5,6
+Relatório do usuário | Prompts | Classplay,/grade/report/user/index.php,2,2,3.5,6
+Resumo da configuração do registro | Classplay,/admin/tool/dataprivacy/summary.php,2,1,20,5
+Seção: Nova subseção | 🔒 IA + Branding | Classplay,/course/view.php,2,2,3,6
+Seção: Seção 1 | Modelos de IA | Classplay,/course/view.php,2,1,6,6
+Seção: Seção 3 | 🔒 IA + Branding | Classplay,/course/view.php,2,1,3,6
+TEMPLO.FCA: Apresentação Aula 3 - Módulo 2 | Classplay,/mod/resource/view.php,2,2,5.5,5
+TUTORIAIS: Como criar agentes? by Anthropic | Classplay,/mod/resource/view.php,2,2,10.5,4
+Upgrading to new version | Moodle 5.0 (Build: 20250414) | Classplay,/admin/index.php,2,1,6,10
+Visão geral dos Plugins | Plugins | Administração | Classplay,/admin/plugins.php,2,2,51,5
+(not set),/user/profile.php,1,1,0,2
+AJAX e Javascript | Aparência | Administração | Classplay,/admin/settings.php,1,1,2,3
+Acesso ao site | Classplay,/login/index.php,1,1,9,7
+Active Campaign,/turmas-templo/controle-templo/ferramentas-0425/active-campaign,1,1,9,1
+Ada,/turmas-templo/controle-templo/ferramentas-0425/ada,1,1,1,1
+Administradores do site | Permissões | Usuários | Administração | Classplay,/admin/roles/admins.php,1,1,5,3
+Agatha Maranhão: Perfil público | Classplay,/user/profile.php,1,1,25,5
+Agente Generativo | Classplay,/mod/aiagents/area.php,1,1,3,3
+Agente Generativo: Perfil pessoal: Agatha Maranhão | Classplay,/user/view.php,1,1,6,2
+Agente Generativo: Perfil pessoal: Antonio Roberto Rodante | Classplay,/user/view.php,1,1,15,3
+Agente Generativo: Perfil pessoal: Guilherme Ribeiro | Classplay,/user/view.php,1,1,46,2
+Agente Generativo: Perfil pessoal: Natalie Chamberlain | Classplay,/user/view.php,1,1,33,7
+Ana Carolina Brandizzi: Perfil público | Classplay,/user/profile.php,1,1,40,3
+Analista de Descrição de Vaga para Atração de Talentos,/turmas-templo/controle-templo/automao-para-rh/prompts-para-recursos-humanos/atrao-e-recrutamento-de-talento/analista-de-descrio-de-vaga-para-atrao-de-talentos,1,1,5,1
+Andre Gavazza: Perfil público | Classplay,/user/profile.php,1,1,6,3
+Anna Carolina Santana Corgozinho: Perfil público | Classplay,/user/profile.php,1,1,0,2
+Antonio Roberto Rodante: Perfil público | Classplay,/user/profile.php,1,1,13,3
+Assistente de Brainstorming,/automacao/biblioteca-de-prompts/assistente-de-brainstorming,1,1,66,1
+Assistente de Criação de Prompt para MidJourney,/automacao/agentes-prontos/assistente-de-criao-de-prompt-para-midjourney-prompt-reverso,1,1,22,2
+Atividades do curso: Biblioteca de Agentes | Classplay,/course/overview.php,1,1,13,3
+Atividades do curso: IA para Advogados | Classplay,/course/overview.php,1,1,1,3
+Atividades do curso: Prompts | Classplay,/course/overview.php,1,1,5,3
+Atividades do curso: Webinars | Classplay,/course/overview.php,1,1,3,3
+Atividades do curso: 🔒 IA + Branding | Classplay,/course/overview.php,1,1,8,3
+Atividades do curso: 🔒 O Mundo dos Agents | Classplay,/course/overview.php,1,1,8,3
+Atualizando para nova versão | Moodle 5.0 (Build: 20250414) | Classplay,/admin/index.php,1,1,0,2
+Autoinscrição | Classplay,/enrol/editinstance.php,1,1,1,2
+Avaliação avançada | Classplay,/grade/grading/manage.php,1,1,1,3
+BASICOMKT-FREE: Participantes | Classplay,/user/index.php,1,1,2,3
+BRASASJOR.0925T1: Playlist de Estudos - Módulo 1 | Classplay,/mod/resource/view.php,1,1,16,2
+Backups | Relatórios | Administração | Classplay,/report/backups/index.php,1,1,1,3
+Biblioteca Templo,/conteudo/biblioteca-templo,1,1,15,4
+Biblioteca de Agentes: Perfil pessoal: Anna Carolina Santana Corgozinho | Classplay,/user/view.php,1,1,0,2
+Biblioteca de Agentes: Perfil pessoal: Iuly Francinne Macari de Lima | Classplay,/user/view.php,1,1,0,2
+Biblioteca de Agentes: Perfil pessoal: Saullo Soares Santos | Classplay,/user/view.php,1,1,2,3
+Biblioteca de Agentes: Perfil pessoal: Thais Regina de Souza Diniz | Classplay,/user/view.php,1,1,0,2
+Biblioteca de Prompts: Perfil pessoal: Marcello Andrade | Classplay,/user/view.php,1,1,3,3
+Biblioteca de Prompts: Perfil pessoal: Vincenzo Zandoná | Classplay,/user/view.php,1,1,1,3
+Boost | Configurações de tema personalizado | Aparência | Administração | Classplay,/admin/settings.php,1,1,6,3
+COGNA: Advogados,/turmas-templo/controle-templo/cogna-advogados,1,1,6,1
+Camilla Magalhaes Silva: Perfil público | Classplay,/user/profile.php,1,1,0,2
+Campos personalizados de curso | Configurações padrão | Cursos | Administração | Classplay,/course/customfield.php,1,1,2,3
+Campos personalizados do Coorte | Contas | Usuários | Administração | Classplay,/cohort/customfield.php,1,1,3,3
+Cancelando AGENTS-FREE | Classplay,/course/delete.php,1,1,3,4
+Cancelando IAG-MKT-FREE | Classplay,/course/delete.php,1,1,22,4
+Cancelando MINI-BRANDING.FREE_1 | Classplay,/course/delete.php,1,1,3,3
+Cancelando TEMPLO2FR.0125T1 | Classplay,/course/delete.php,1,1,4,4
+Cancelando TEMPLOFRE.0125T1 | Classplay,/course/delete.php,1,1,3,4
+Carlos Toledo: Perfil público | Classplay,/user/profile.php,1,1,13,7
+Classplay | Mapa da Plataforma,/ee0a74cee3f5490c89f562e291580e07,1,1,1,3
+Classplay: Modificar perfil | Classplay,/user/editadvanced.php,1,1,5,2
+Classplay: Preferência de idioma | Classplay,/user/language.php,1,1,4,6
+Classplay: Preferências do calendário | Classplay,/user/calendar.php,1,1,32,6
+Conclusão de atividade padrão | Classplay,/course/defaultcompletion.php,1,1,6,3
+Configurações de Certificado,/turmas-templo/controle-templo/wow-templo/controle/repositrio-de-contedos/documentao-classplay-moodle/configuraes-de-certificado,1,1,5,1
+Configurações de mochila | Classplay,/badges/mybackpack.php,1,1,8,2
+Configurações gerais | Notas | Administração | Classplay,/admin/settings.php,1,1,4,3
+Contas de pagamento | Pagamentos | Administração | Classplay,/payment/accounts.php,1,1,10,3
+Contas | Usuários | Administração | Classplay,/admin/category.php,1,1,4,3
+Controle - Templo,/Controle-Templo-1515c644545480ecbca8e0668453d1b3,1,1,0,3
+Curso: IA Generativa no Marketing Digital 🔒 | Classplay,/course/view.php,1,1,2,2
+Curso: O Mundo dos Agents 🔒 | Classplay,/course/view.php,1,1,711,3
+Curso: 🔒 O Básico da IAGen no Marketing Digital | Classplay,/course/view.php,1,1,1,2
+Cursos Classplay: Carregar cursos | Classplay,/admin/tool/uploadcourse/index.php,1,1,2,2
+DANNEMANNIA .0225T1: Aula 1: Fundamentos da IA Generativa no Direito | Classplay,/mod/resource/view.php,1,1,4,2
+DANNEMANNIA .0225T1: Desafio Prático 3: Escolha uma atividade e estimule seu aprendizado! | Classplay,/mod/resource/view.php,1,1,25,2
+Debugging | Desenvolvimento | Administração | Classplay,/admin/settings.php,1,1,3,3
+EBOOKS: 6 Prompts para Aumentar a Produtividade da Equipe de Marketing | Classplay,/mod/resource/view.php,1,1,5,3
+EBOOKS: ChatGPT Bible | Classplay,/mod/resource/view.php,1,1,2,2
+EBOOKS: ChatGPT Multi-Plugin | Classplay,/mod/resource/view.php,1,1,3,2
+EBOOKS: Como Usar o ChatGPT e Python para Construir um Gráfico de Conhecimento | Classplay,/mod/resource/view.php,1,1,1,2
+EBOOKS: Como Usar o ChatGPT para Converter Texto em Uma Apresentação do PowerPoint | Classplay,/mod/resource/view.php,1,1,1,2
+EBOOKS: Introduction to Algorithmic Marketing | Classplay,/mod/resource/view.php,1,1,6,3
+EBOOKS: Manual sobre ChatGPT + IAG | Classplay,/mod/resource/view.php,1,1,6,2
+EBOOKS: O Guia Completo do Claude AI: Revolucione a Forma Como Você Trabalha | Classplay,/mod/resource/view.php,1,1,3,2
+EBOOKS: Os 6 Plugins que Mudarão Como Usar o ChatGPT | Classplay,/mod/resource/view.php,1,1,2,2
+EBOOKS: Supercharge Your Research Productivity with ChatGPT | Classplay,/mod/resource/view.php,1,1,5,2
+EBOOKS: The Art of Asking ChatGPT for High-Quality Answers | Classplay,/mod/resource/view.php,1,1,7,2
+EBOOKS: Usos Essenciais de IAG para Times de Marketing | Classplay,/mod/resource/view.php,1,1,10,2
+EBOOKS: Web3 Marketing: A Handbook for the Next Internet Revolution | Classplay,/mod/resource/view.php,1,1,11,2
+Eder Antonio Milani Bernardes: Perfil público | Classplay,/user/profile.php,1,1,0,2
+Editando o relatório do avaliador | IA + Branding | Classplay,/grade/report/grader/index.php,1,1,0,2
+Editando o relatório do avaliador | 🔒 IA + Branding | Classplay,/grade/report/grader/index.php,1,1,3,2
+Editar AI Agents: Agente Generativo | casos-uso | Classplay,/course/modedit.php,1,1,4,2
+Editar AI Prompts: aaaaaaaaaaaaaaaaa | PROMPTSFREE | Classplay,/course/modedit.php,1,1,13,4
+Editar Arquivo: Apresentação Aula 3 | TEMPLO.FCA | Classplay,/course/modedit.php,1,1,2,5
+Editar Arquivo: Apresentação aula 2/3 - módulo 1 | TEMPLO.FCA | Classplay,/course/modedit.php,1,1,11,4
+Editar Arquivo: Apresentação aula 2/3/extra | TEMPLO.FCA | Classplay,/course/modedit.php,1,1,0,4
+Editar Arquivo: Apresentação aula1 - módulo 2 | TEMPLO.FCA | Classplay,/course/modedit.php,1,1,3,5
+Editar Arquivo: Aula 1: Fundamentos da IA Generativa no Direito | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,12,5
+Editar Arquivo: Aula 2: Automação de Fluxos de Trabalho Jurídico com IA | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,1,5
+Editar Arquivo: Aula 2: Regulação e Aspectos Éticos da IA no Direito | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,2,5
+Editar Arquivo: Criando seu Assistente IA - Parte 1 | MundoAgents | Classplay,/course/modedit.php,1,1,19,2
+Editar Arquivo: Desafio Prático 2: Escolha uma atividade e estimule seu aprendizado! | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,2,5
+Editar Arquivo: O Ecossistema de Agents da OpenAI | MundoAgents | Classplay,/course/modedit.php,1,1,22,2
+Editar Arquivo: Playlist de Estudos Módulo 1 | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,4,5
+Editar Arquivo: Playlist de Estudos Módulo 2 | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,1,5
+Editar Arquivo: Playlist de Estudos Módulo 3 | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,1,5
+Editar Arquivo: eBook: ChatGPT + Inteligência Artificial Generativa | IAG-MKTDigital | Classplay,/course/modedit.php,1,1,33,3
+Editar Fórum: Avisos do site | Classplay,/course/modedit.php,1,1,1,2
+Editar Seção: . | Modelos de IA | Classplay,/course/view.php,1,1,1,2
+Editar Seção: 1. Fundamentos e Desenvolvimento de Agents | O Mundo dos Agentes | Classplay,/course/view.php,1,1,6,2
+Editar Seção: 2. Criando e Aperfeiçoando Agents | O Mundo dos Agentes | Classplay,/course/view.php,1,1,13,2
+Editar Seção: 3. Aplicações de IAG no Marketing Digital | O Básico de IA Generativa no Marketing Digital | Classplay,/course/view.php,1,1,5,2
+Editar Seção: Aula 1 - Introdução à IA Generativa e Modelos de Linguagem | FCA: Formação de Talentos | Classplay,/course/section.php,1,1,11,3
+Editar Seção: Aula 3 - Casos de Uso em Educação e Projeto Prático | FCA: Formação de Talentos | Classplay,/course/view.php,1,1,5,2
+Editar Seção: Aula “Aprendizado de Máquina – Conceitos-chave” com miniatura e ícone de cadeado. | Freemium Simulado | Classplay,/course/view.php,1,1,37,3
+Editar Seção: Chat GPT | Modelos de IA | Classplay,/course/view.php,1,1,7,2
+Editar Seção: Como integrar IA generativa ao seu site | Freemium Simulado 2 | Classplay,/course/view.php,1,1,22,4
+Editar Seção: Criando consistência de tom de voz e estilo para a sua marca com Custom Instructions | 🔒 IA + Branding | Classplay,/course/view.php,1,1,5,2
+Editar Seção: Introdução à Inteligência Artificial (Freemium) | Freemium Simulado | Classplay,/course/section.php,1,1,3,3
+Editar Seção: Módulo 1 - Fundamentos e Desenvolvimento de Agentes | O Mundo dos Agentes | Classplay,/course/view.php,1,1,15,2
+Editar Seção: Módulo 1 - Introdução à IA Generativa | IA para Advogados | Classplay,/course/view.php,1,1,11,2
+Editar Seção: Módulo 1 | Introdução à IA Generativa | Classplay,/course/view.php,1,1,35,2
+Editar Seção: Módulo 1 | O Básico de IA Generativa no Marketing Digital | Classplay,/course/view.php,1,1,5,2
+Editar Seção: Módulo 2 - Criando e Aperfeiçoando Agentes | O Mundo dos Agentes | Classplay,/course/view.php,1,1,7,2
+Editar Seção: Módulo 2 - Explorando as capacidades do ChatGPT | Análise de Dados | Classplay,/course/view.php,1,1,12,2
+Editar Seção: Módulo 2 | Introdução à IA Generativa | Classplay,/course/view.php,1,1,47,2
+Editar Seção: Módulo 2 | O Básico de IA Generativa no Marketing Digital | Classplay,/course/view.php,1,1,4,2
+Editar Seção: Módulo 3 - Criação de Assistentes IA para Advogados | IA para Advogados | Classplay,/course/view.php,1,1,1,2
+Editar Seção: Módulo 3 - Em Busca do Prompt Perfeito | Engenharia de Prompts | Classplay,/course/view.php,1,1,3,2
+Editar Seção: Módulo 3 - Workflows de Agentes | O Mundo dos Agentes | Classplay,/course/view.php,1,1,33,2
+Editar Seção: Módulo 4 - Agentes Avançados: Integração com Ferramentas Externas | O Mundo dos Agentes | Classplay,/course/view.php,1,1,4,2
+Editar Seção: Módulo 4 - Personalização de Estratégias com IA Generativa | O Básico de IA Generativa no Marketing Digital | Classplay,/course/view.php,1,1,3,2
+Editar Seção: Módulo 5 - Casos de Uso com Imagens | O Básico de IA Generativa no Marketing Digital | Classplay,/course/view.php,1,1,31,2
+"Editar Seção: Módulo 5 - Integração, Aplicação e Casos de Sucesso | O Mundo dos Agentes | Classplay",/course/view.php,1,1,24,2
+Editar Seção: Nova subseção | 🔒 IA + Branding | Classplay,/course/view.php,1,1,4,2
+Editar Seção: Se Preparando para a IA: Habilidades Necessárias | IA para Advogados | Classplay,/course/view.php,1,1,8,2
+Editar Seção: Seção 1 | 🔒 IA + Branding | Classplay,/course/view.php,1,1,28,2
+Editar Seção: Slides: O Ecossistema de Agents da OpenAI | O Mundo dos Agentes | Classplay,/course/section.php,1,1,14,3
+Editar Seção: TESTE 3 | 🔒 IA + Branding | Classplay,/course/view.php,1,1,9,2
+Editar Seção: | Modelos de IA | Classplay,/course/section.php,1,1,5,3
+Editar Seção: 🔒 Criando consistência de tom de voz e estilo para a sua marca com Custom Instructions | 🔒 IA + Branding | Classplay,/course/view.php,1,1,22,3
+Editar curso: Masterclasses | Classplay,/course/view.php,1,1,1,2
+Editar curso: eBooks | Classplay,/course/view.php,1,1,1,2
+Editar seção: 1. Fundamentos e Desenvolvimento de Agents | MundoAgents | Classplay,/course/editsection.php,1,1,8,2
+Editar seção: 2. Criando e Aperfeiçoando Agents | MundoAgents Freemium | Classplay,/course/editsection.php,1,1,57,3
+Editar seção: 2. Engenharia de Prompts | IAG-MKTDigital | Classplay,/course/editsection.php,1,1,8,4
+Editar seção: 3. Aplicações de IAG no Marketing Digital | IAG-MKTDigital | Classplay,/course/editsection.php,1,1,1,4
+Editar seção: Aula 1 | TEMPLO2FR.0125T1 | Classplay,/course/editsection.php,1,1,5,5
+Editar seção: Aula 3 - Casos de Uso em Educação e Projeto Prático | TEMPLO.FCA | Classplay,/course/editsection.php,1,1,7,4
+Editar seção: Aula “Aprendizado de Máquina – Conceitos-chave” com miniatura e ícone de cadeado. | TEMPLOFRE.0125T1 | Classplay,/course/editsection.php,1,1,14,4
+Editar seção: Brainstorm de Marketing com ChatGPT | OPMARKETING | Classplay,/course/editsection.php,1,1,5,3
+Editar seção: Chat GPT | LLMS | Classplay,/course/editsection.php,1,1,2,4
+Editar seção: Clique no botão para acessar | LLMS | Classplay,/course/editsection.php,1,1,18,4
+Editar seção: Como usar o Advanced Data Analysis do ChatGPT para analisar dados em planilhas | MINI-DADOS | Classplay,/course/editsection.php,1,1,3,2
+Editar seção: Descubra o Mundo dos Agents! | AGENTS-FREE | Classplay,/course/editsection.php,1,1,0,4
+Editar seção: Descubra o Mundo dos Agents! | MundoAgents Freemium | Classplay,/course/editsection.php,1,1,1,4
+Editar seção: Descubra o Mundo dos Agents! | MundoAgents | Classplay,/course/editsection.php,1,1,4,3
+Editar seção: Entenda como a IA Generativa impacta o marketing e explore os principais modelos de linguagem e ferramentas de texto. | BASICOMKT-FREE | Classplay,/course/editsection.php,1,1,13,4
+Editar seção: Entenda como a IA Generativa impacta o marketing e explore os principais modelos de linguagem e ferramentas de texto. | MINI-BASICOMKT-FREE | Classplay,/course/editsection.php,1,1,0,4
+Editar seção: Introdução à Inteligência Artificial (Freemium) | TEMPLOFRE.0125T1 | Classplay,/course/editsection.php,1,1,28,5
+Editar seção: MÓDULO 1 - Texto e IA Generativa | TEMPLO.FCA | Classplay,/course/editsection.php,1,1,1,2
+Editar seção: Módulo 1 - Fundamentos e Desenvolvimento de Agentes | MundoAgents | Classplay,/course/editsection.php,1,1,1,4
+Editar seção: Módulo 1 - Introdução à IA Generativa | IA-Advogados | Classplay,/course/editsection.php,1,1,1,5
+Editar seção: Módulo 1 | IAG-MKTDigital | Classplay,/course/editsection.php,1,1,1,4
+Editar seção: Módulo 2 - Criando e Aperfeiçoando Agentes | MundoAgents | Classplay,/course/editsection.php,1,1,1,4
+Editar seção: Módulo 2 - Explorando as capacidades do ChatGPT | MINI-DADOS | Classplay,/course/editsection.php,1,1,0,4
+Editar seção: Módulo 3 - Criação de Assistentes IA para Advogados | IA-Advogados | Classplay,/course/editsection.php,1,1,1,5
+Editar seção: Módulo 3 - Em Busca do Prompt Perfeito | MINI-PROMPTS | Classplay,/course/editsection.php,1,1,2,4
+Editar seção: Módulo 3 - Workflows de Agentes | MundoAgents | Classplay,/course/editsection.php,1,1,0,4
+Editar seção: Módulo 4 - Agentes Avançados: Integração com Ferramentas Externas | MundoAgents | Classplay,/course/editsection.php,1,1,5,4
+Editar seção: Módulo 4 - Personalização de Estratégias com IA Generativa | IAG-MKTDigital | Classplay,/course/editsection.php,1,1,1,5
+Editar seção: Módulo 5 - Casos de Uso com Imagens | IAG-MKTDigital | Classplay,/course/editsection.php,1,1,2,5
+"Editar seção: Módulo 5 - Integração, Aplicação e Casos de Sucesso | MundoAgents | Classplay",/course/editsection.php,1,1,0,4
+Editar seção: Nossas boas-vindas ao curso! | BASICOMKT-FREE | Classplay,/course/editsection.php,1,1,0,4
+Editar seção: Nossas boas-vindas ao curso! | IAADV-FREE | Classplay,/course/editsection.php,1,1,1,5
+Editar seção: Nossas boas-vindas ao curso! | IAGMKT-FREE | Classplay,/course/editsection.php,1,1,0,4
+Editar seção: Nossas boas-vindas ao curso! | IMGMVIDEO-FREE | Classplay,/course/editsection.php,1,1,0,4
+Editar seção: Se Preparando para a IA: Habilidades Necessárias | IA-Advogados | Classplay,/course/editsection.php,1,1,1,5
+Editar seção: Seção 1 | MundoAgents Freemium | Classplay,/course/editsection.php,1,1,4,3
+Editar seção: Seção 2 | LLMS | Classplay,/course/editsection.php,1,1,15,4
+Editar seção: Site | Classplay | Classplay,/course/editsection.php,1,1,0,1
+Editar seção: TESTE 3 | MINI.BRANDING-FREE | Classplay,/course/editsection.php,1,1,4,3
+Editar seção: Use ferramentas de IA para produzir imagens e vídeos do zero. | MINI-IMAGEMVIDEO-FREE_1 | Classplay,/course/editsection.php,1,1,1,4
+Editar seção: Workflow - Do Tom de Voz à Postagem. | MundoAgents | Classplay,/course/editsection.php,1,1,4,3
+Editar Área de texto e mídia: A IA e o Futuro da Produtividade: Uma Visão Transformadora | IntroIAG | Classplay,/course/modedit.php,1,1,2,5
+"Editar Área de texto e mídia: A IA é uma ferramenta poderosa para advogados, mas... | IA-Advogados | Classplay",/course/modedit.php,1,1,2,5
+Editar Área de texto e mídia: Ampliando Horizontes: interagindo com Agentes nativos do Google Gemini | MundoAgents | Classplay,/course/modedit.php,1,1,3,4
+Editar Área de texto e mídia: Ampliando Horizontes: interagindo com agents nativos do Google Gemini | MundoAgents | Classplay,/course/modedit.php,1,1,6,4
+Editar Área de texto e mídia: Aplicando Framework de Agents | IntroIAG | Classplay,/course/modedit.php,1,1,0,4
+Editar Área de texto e mídia: Aplicando Framework de Agents | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,14,5
+Editar Área de texto e mídia: Aplicação: Como extrair o seu tom de voz e aplicar ao seu agente | MundoAgents | Classplay,/course/modedit.php,1,1,5,5
+"Editar Área de texto e mídia: Aplicação: utilizando o seu Agente para criar planejamento, imagens e posts | MundoAgents | Classplay",/course/modedit.php,1,1,2,4
+Editar Área de texto e mídia: Aprenda a escolher a ferramenta certa para cada de... | MINI-BASICOMKT | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Aprenda como transformar dados brutos em insights ... | MINI-DADOS | Classplay,/course/modedit.php,1,1,3,4
+"Editar Área de texto e mídia: Aprenda modelos de monetização, formas de atuação,... | MINI-BASICOMKT | Classplay",/course/modedit.php,1,1,2,4
+Editar Área de texto e mídia: Aprendendo a aprender com o ChatGPT | IntroIAG | Classplay,/course/modedit.php,1,1,9,5
+Editar Área de texto e mídia: Aprofundando no Magic Design do Canva | MINI-IMAGEMVIDEO | Classplay,/course/modedit.php,1,1,7,5
+Editar Área de texto e mídia: Assistentes de IA: O que é Open-Source e Close-Source | IA-Advogados | Classplay,/course/modedit.php,1,1,2,5
+Editar Área de texto e mídia: Aula 1 - Fundamentos da IA Generativa no Direito | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,3,5
+Editar Área de texto e mídia: Aula 1 | TEMPLO.FCA | Classplay,/course/modedit.php,1,1,3,4
+Editar Área de texto e mídia: Aula 1: Engenharia de Prompts e Personalização no Uso da IA | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,1,5
+Editar Área de texto e mídia: Aula 1: Estratégias para Implementação da IA no Direito | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,3,5
+Editar Área de texto e mídia: Aula 1: IA na Produção e Revisão de Documentos Jurídicos | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,1,5
+Editar Área de texto e mídia: Aula 2: Automação de Fluxos de Trabalho Jurídico com IA | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,1,5
+Editar Área de texto e mídia: Aula 2: Ferramentas de IA Aplicadas ao Direito | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,2,5
+Editar Área de texto e mídia: Casos de Uso: O que os criativos no mundo estão elaborando com AI | MINI-IMAGEMVIDEO | Classplay,/course/modedit.php,1,1,0,4
+"Editar Área de texto e mídia: Como a IA pode ajudar a criar textos, imagens e processar dados | IAG-MKTDigital | Classplay",/course/modedit.php,1,1,5,2
+"Editar Área de texto e mídia: Como a IA pode ajudar a criar textos, imagens e processar dados | IAG-MKTDigital. Freemium | Classplay",/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Como a IA pode ajudar a fazer as principais atividades do marketing digital | MINI-BASICOMKT | Classplay,/course/modedit.php,1,1,2,4
+Editar Área de texto e mídia: Como estudar? | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,0,4
+Editar Área de texto e mídia: Como funciona a interface do ChatGPT? | IA-Advogados | Classplay,/course/modedit.php,1,1,1,5
+Editar Área de texto e mídia: Como utilizar You.com e Perplexity para pesquisas? | IA-Advogados | Classplay,/course/modedit.php,1,1,2,5
+Editar Área de texto e mídia: Conclusão: Tendências e Futuro da IA no Direito | IA-Advogados | Classplay,/course/modedit.php,1,1,6,5
+Editar Área de texto e mídia: Conexão Avançada: Integração de Agentes com o seu Gmail | MundoAgents | Classplay,/course/modedit.php,1,1,3,4
+Editar Área de texto e mídia: Conexão Avançada: Integração de Agents com o seu Gmail | MundoAgents | Classplay,/course/modedit.php,1,1,4,4
+Editar Área de texto e mídia: Conheça as técnicas existentes | MINI-IMAGEMVIDEO | Classplay,/course/modedit.php,1,1,0,4
+"Editar Área de texto e mídia: Contexto, Personas e System Roles em prompts | IAG-MKTDigital | Classplay",/course/modedit.php,1,1,2.5,2
+"Editar Área de texto e mídia: Contexto, Personas e System Roles em prompts | IAG-MKTDigital. Freemium | Classplay",/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Criando Apresentações em Vídeo utilizando AI | MINI-IMAGEMVIDEO | Classplay,/course/modedit.php,1,1,0,4
+Editar Área de texto e mídia: Criando consistência de tom de voz e estilo para a sua marca com Custom Instructions | MINI-BRANDING | Classplay,/course/modedit.php,1,1,6,4
+Editar Área de texto e mídia: Descobrindo Agentes: Arquitetura e Aplicações | MundoAgents | Classplay,/course/modedit.php,1,1,5,5
+Editar Área de texto e mídia: Descubra como a IA generativa está remodelando o u... | MINI-BASICOMKT | Classplay,/course/modedit.php,1,1,2,4
+Editar Área de texto e mídia: Descubra o Mundo dos Agents! | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,0,4
+Editar Área de texto e mídia: Descubra o Mundo dos Agents! | MundoAgents | Classplay,/course/modedit.php,1,1,3,4
+Editar Área de texto e mídia: Descubra o que você vai encontrar nos 5 módulos do... | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,2,4
+Editar Área de texto e mídia: Desenvolva estratégias personalizadas com IA Generativa | OPMARKETING | Classplay,/course/modedit.php,1,1,4,3
+"Editar Área de texto e mídia: Desenvolvimento de Assistentes de IA para Tarefas Jurídicas Específicas: Criando seu GPT, primeiros passos | IA-Advogados | Classplay",/course/modedit.php,1,1,2,5
+Editar Área de texto e mídia: Design de Apresentações em Segundos: IA como Sua Nova Ferramenta de Design | IntroIAG | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Desvendando os Mistérios da IA Generativa - Parte 2 | IntroIAG | Classplay,/course/modedit.php,1,1,7,5
+Editar Área de texto e mídia: Em Busca do Prompt Perfeito | MINI-PROMPTS | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Estilos e Parâmetros em Imagens | MINI-IMAGEMVIDEO | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Estudos de caso: Ferramentas de automatização de Agentes | MundoAgents | Classplay,/course/modedit.php,1,1,5,5
+Editar Área de texto e mídia: Estudos de caso: Ferramentas de automatização de Agents | MundoAgents | Classplay,/course/modedit.php,1,1,3,4
+Editar Área de texto e mídia: Estudos de caso: Tendências de futuro no universo dos Agents | MundoAgents | Classplay,/course/modedit.php,1,1,4,4
+Editar Área de texto e mídia: Evoluindo Seu Agent: Framework de Criação de Agents | IntroIAG | Classplay,/course/modedit.php,1,1,1,5
+Editar Área de texto e mídia: Evoluindo Seu Agent: Integrando com o seu Google Agenda (Parte 1) | MundoAgents | Classplay,/course/modedit.php,1,1,8,5
+Editar Área de texto e mídia: Evoluindo Seu Agent: Integrando com o seu Google Agenda (Parte 2) | MundoAgents | Classplay,/course/modedit.php,1,1,4,4
+Editar Área de texto e mídia: Evoluindo Seu Agente: Integrando com o seu Google Agenda - Parte 1 | MundoAgents | Classplay,/course/modedit.php,1,1,3,4
+Editar Área de texto e mídia: Evoluindo Seu Agente: Integrando com o seu Google Agenda - Parte 2 | MundoAgents | Classplay,/course/modedit.php,1,1,2,4
+Editar Área de texto e mídia: Evoluindo Seu Agente: Integrando com o seu Google Agenda | MundoAgents | Classplay,/course/modedit.php,1,1,2,4
+Editar Área de texto e mídia: Execução de IA: Práticas Seguras e Privadas | IA-Advogados | Classplay,/course/modedit.php,1,1,2,5
+Editar Área de texto e mídia: Explore como empresas renomadas estão implementand... | MINI-BRANDING | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Ferramentas de IA para Advogados: Análise de documentação | IA-Advogados | Classplay,/course/modedit.php,1,1,3,5
+Editar Área de texto e mídia: Ferramentas de IA: Introdução e Visão Geral | IA-Advogados | Classplay,/course/modedit.php,1,1,1,5
+Editar Área de texto e mídia: Fireflies e Tactiq | IntroIAG | Classplay,/course/modedit.php,1,1,10,4
+Editar Área de texto e mídia: Gemini e Google AI Studio | IntroIAG | Classplay,/course/modedit.php,1,1,1,5
+"Editar Área de texto e mídia: Gerando Posts a Partir de Imagens, Memes, Trends e Links com Bing | MINI-IMAGEMVIDEO | Classplay",/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Gerando para Social Media | MINI-IMAGEMVIDEO | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Geração de Vídeos a Partir de Textos | MINI-IMAGEMVIDEO | Classplay,/course/modedit.php,1,1,5,4
+Editar Área de texto e mídia: Gerenciamento de Tarefas: Automação e Eficiência | IA-Advogados | Classplay,/course/modedit.php,1,1,3,5
+Editar Área de texto e mídia: Gerenciamento de Tempo com IA: Automatizando rotinas | IntroIAG | Classplay,/course/modedit.php,1,1,0,4
+Editar Área de texto e mídia: Hora de começar! | IAG-MKTDigital | Classplay,/course/modedit.php,1,1,3,2
+Editar Área de texto e mídia: Hora de começar! | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,2,4
+Editar Área de texto e mídia: IA e o Futuro do Direito: O que esperar? | IA-Advogados | Classplay,/course/modedit.php,1,1,1,5
+Editar Área de texto e mídia: IA em Due Diligence: Práticas Eficazes | IA-Advogados | Classplay,/course/modedit.php,1,1,2,5
+Editar Área de texto e mídia: IA no Comando: Revolucionando o Gerenciamento de Projetos | IntroIAG | Classplay,/course/modedit.php,1,1,2,4
+"Editar Área de texto e mídia: IA, Criatividade e Inovação | IntroIAG | Classplay",/course/modedit.php,1,1,0,4
+Editar Área de texto e mídia: Integração de Ferramentas: Maximizando a Eficiência | IA-Advogados | Classplay,/course/modedit.php,1,1,2,5
+Editar Área de texto e mídia: Inteligência Artificial: O Hype e a Realidade | IAG-MKTDigital | Classplay,/course/modedit.php,1,1,11,2
+Editar Área de texto e mídia: Introdução à IA Generativa e Modelos de Linguagem | TEMPLO.FCA | Classplay,/course/modedit.php,1,1,0,4
+Editar Área de texto e mídia: LLMs Decifrados: A Ciência por Trás dos Modelos de Texto | IntroIAG | Classplay,/course/modedit.php,1,1,2,4
+Editar Área de texto e mídia: Materiais complementares | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Melhorando a Pesquisa: Ferramentas Inteligentes | IA-Advogados | Classplay,/course/modedit.php,1,1,3,5
+Editar Área de texto e mídia: Mensagem do professor Caio sobre este conteúdo. | IA-Advogados | Classplay,/course/modedit.php,1,1,3,5
+"Editar Área de texto e mídia: Meta Prompts e Prompts Recursivos (COT, TOT) | MINI-PROMPTS | Classplay",/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Mãos à Obra: Construindo Seu Primeiro Agent - Parte 1 | IntroIAG | Classplay,/course/modedit.php,1,1,6,4
+Editar Área de texto e mídia: Mãos à Obra: Construindo Seu Primeiro Agent - Parte 2 | AGENTS-FREEMIUM | Classplay,/course/modedit.php,1,1,10,2
+Editar Área de texto e mídia: Mãos à Obra: Construindo Seu Primeiro Agent - Parte 2 | IntroIAG | Classplay,/course/modedit.php,1,1,9,4
+Editar Área de texto e mídia: Mãos à Obra: Construindo Seu Primeiro Agent - Parte 2 | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,15,7
+Editar Área de texto e mídia: Mãos à Obra: Construindo Seu Primeiro Agent | IntroIAG | Classplay,/course/modedit.php,1,1,0,4
+Editar Área de texto e mídia: Mãos à Obra: Construindo Seu Primeiro Agente - Parte 1 | MundoAgents | Classplay,/course/modedit.php,1,1,2,4
+Editar Área de texto e mídia: Mãos à Obra: Construindo Seu Primeiro Agente - Parte 2 | MundoAgents | Classplay,/course/modedit.php,1,1,4,4
+Editar Área de texto e mídia: Mãos à Obra: Evoluindo Seu Agente - Parte 3 | MundoAgents | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: NotebookLM - RAG: Como conversar com seus documentos | IA-Advogados | Classplay,/course/modedit.php,1,1,1,5
+Editar Área de texto e mídia: O que são prompts? Segredos que ninguém te conta! | IAG-MKTDigital | Classplay,/course/modedit.php,1,1,5,2
+Editar Área de texto e mídia: O que é IA Generativa? | MINI-BASICOMKT | Classplay,/course/modedit.php,1,1,1,4
+"Editar Área de texto e mídia: Os diferentes motores de texto na IA: Perplexity, BING, GPT, BARD | IAG-MKTDigital | Classplay",/course/modedit.php,1,1,4,2
+"Editar Área de texto e mídia: Os diferentes motores de texto na IA: Perplexity, BING, GPT, BARD | IAG-MKTDigital. Freemium | Classplay",/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Parte 2: Prompts Avançados e Recursivos | IntroIAG | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Parte 3: Personas e System Roles | IntroIAG | Classplay,/course/modedit.php,1,1,5,5
+Editar Área de texto e mídia: Parte I: Fundamentos e Princípios | IntroIAG | Classplay,/course/modedit.php,1,1,4,5
+Editar Área de texto e mídia: Personas e System Roles | IntroIAG | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Possibilidades e Usos | IntroIAG | Classplay,/course/modedit.php,1,1,2,5
+Editar Área de texto e mídia: Produtividade com IA: Casos de Uso e Análise Efeitos | IAG-MKTDigital | Classplay,/course/modedit.php,1,1,4,2
+Editar Área de texto e mídia: Prompts Avançados e Contexto | MINI-PROMPTS | Classplay,/course/modedit.php,1,1,2,4
+Editar Área de texto e mídia: Q&A - IA Generativa e Regulação Jurídica | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,1,5
+Editar Área de texto e mídia: Q&A: Ferramentas e Estratégias com IA no Direito | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,6,5
+Editar Área de texto e mídia: Q&A: IA na Automação Jurídica | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,3,5
+Editar Área de texto e mídia: Quer acessar esse curso e aprender tudo sobre os a... | AGENTS-FREE | Classplay,/course/modedit.php,1,1,12,5
+"Editar Área de texto e mídia: Revisão, desdobramento e versionamento de textos, posts, e-mails | OPMARKETING | Classplay",/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Se Preparando para a IA: Habilidades Necessárias | IA-Advogados | Classplay,/course/modedit.php,1,1,2,5
+Editar Área de texto e mídia: Tratamento e modificação de imagens com Adobe Firefly | MINI-IMAGEMVIDEO | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: Usando IA Na aula de hoje: desafios e soluções no ... | TEMPLO.FCA | Classplay,/course/modedit.php,1,1,13,4
+Editar Área de texto e mídia: Uso de IA em equipes jurídicas | IA-Advogados | Classplay,/course/modedit.php,1,1,2,5
+"Editar Área de texto e mídia: Utilize IA para criar conteúdos, segmentar mídia e... | OPMKT-FREE | Classplay",/course/modedit.php,1,1,1,4
+"Editar Área de texto e mídia: Veja o recado que o Caio, nosso professor, deixou para você. | IA-Advogados | Classplay",/course/modedit.php,1,1,16,5
+Editar Área de texto e mídia: [DANNEMANN] Masterclass: Transformação Digital no Direito com IA Generativa | DANNEMANNIA .0225T1 | Classplay,/course/modedit.php,1,1,4,5
+Editar Área de texto e mídia: aaaaa | TEMPLO2FR.0125T1 | Classplay,/course/modedit.php,1,1,1,4
+Editar Área de texto e mídia: https://www.youtube.com/watch?v=dQw4w9WgXcQ | TEMPLOFRE.0125T1 | Classplay,/course/modedit.php,1,1,6,4
+Editar Área de texto e mídia: label442 | TEMPLO2FR.0125T1 | Classplay,/course/modedit.php,1,1,3,4
+Editar Área de texto e mídia: label447 | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,3,4
+Editar Área de texto e mídia: label449 | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,36,4
+Editar Área de texto e mídia: label450 | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,4,4
+Editar Área de texto e mídia: label451 | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,10,5
+Editar Área de texto e mídia: label452 | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,3,4
+Editar Área de texto e mídia: label453 | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,9,5
+Editar Área de texto e mídia: label454 | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,6,5
+Editar Área de texto e mídia: label455 | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,5,5
+Editar Área de texto e mídia: label456 | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,7,5
+Editar Área de texto e mídia: label487 | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,5,5
+Editar Área de texto e mídia: label488 | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,5,4
+Editar Área de texto e mídia: label489 | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,6,5
+Editar Área de texto e mídia: label490 | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,13,6
+Editar Área de texto e mídia: label492 | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,18,6
+Editar Área de texto e mídia: label494 | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,15,5
+Editar Área de texto e mídia: label495 | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,122,5
+Editar Área de texto e mídia: label496 | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,78,5
+Editar Área de texto e mídia: label519 | OPMKT-FREE | Classplay,/course/modedit.php,1,1,116,5
+Editar Área de texto e mídia: label520 | OPMKT-FREE | Classplay,/course/modedit.php,1,1,1,4
+Emblemas | Classplay,/badges/index.php,1,1,2,3
+Engajamento e Cultura Organizacional,/turmas-templo/controle-templo/automao-para-rh/prompts-para-recursos-humanos/engajamento-e-cultura-organizacional,1,1,18,2
+Equipes,/turmas-templo/controle-templo/wow-templo/controle/estratgia-2025/okrs-por-equipe,1,1,22,1
+Erro | Classplay,/admin/oauth2callback.php,1,1,3,5
+Erro | Classplay,/course/modedit.php,1,1,7,5
+Erro | Classplay,/iplookup/index.php,1,1,2,3
+Erro | Classplay,/mod/aiagents/index.php,1,1,2,4
+Erro | Classplay,/mod/aiprompts/resource.php,1,1,0,4
+Erro | Classplay,/mod/aitools/index.php,1,1,4,3
+Erro | Classplay,/mod/resource/view.php,1,1,4,3
+Excluir AGENTS-FREE ? | Classplay,/course/delete.php,1,1,1,3
+Excluir IAG-MKT-FREE ? | Classplay,/course/delete.php,1,1,0,3
+Excluir MINI-BRANDING.FREE_1 ? | Classplay,/course/delete.php,1,1,0,4
+Excluir TEMPLO2FR.0125T1 ? | Classplay,/course/delete.php,1,1,1,3
+Excluir TEMPLOFRE.0125T1 ? | Classplay,/course/delete.php,1,1,1,3
+Gerador de Descrição de Vaga Atrativa e Inclusiva,/turmas-templo/controle-templo/automao-para-rh/prompts-para-recursos-humanos/atrao-e-recrutamento-de-talento/gerador-de-descrio-de-vaga-atrativa-e-inclusiva,1,1,6,1
+Gerenciar arquivos | Classplay,/lib/editor/tiny/plugins/media/manage.php,1,1,0,2
+Gerenciar blocos | Blocos | Plugins | Administração | Classplay,/admin/blocks.php,1,1,19,4
+Gerenciar tags | Aparência | Administração | Classplay,/tag/manage.php,1,1,1,3
+HTML | Blocos | Plugins | Administração | Classplay,/admin/settings.php,1,1,2,3
+IAG-MKTDigital. Freemium: Participantes | Classplay,/user/index.php,1,1,2,3
+IAG-MKTDigital: eBook: ChatGPT + Inteligência Artificial Generativa | Classplay,/mod/resource/view.php,1,1,28,2
+Imagem & Vídeo,/conteudo/cursos/mini-cursos-tematicos/imagem-vdeo,1,1,31,1
+Informação sobre a versão atual | Classplay,/admin/index.php,1,1,1,4
+Interview Pro,/turmas-templo/controle-templo/automao-para-rh/lista-de-agentes-gpt-avanados/lista-de-agentes-gpt-avanados/interview-pro,1,1,2,2
+IntroIAG | Classplay,/course/completion.php,1,1,9,3
+IntroIAG: Slides: O Ecossistema da OpenAI | Classplay,/mod/resource/view.php,1,1,16,3
+Isabele dos Santos Mendes Pedrozo: Perfil público | Classplay,/user/profile.php,1,1,17,4
+Jose Carlos Mauricio da Rocha Filho: Perfil público | Classplay,/user/profile.php,1,1,0,2
+Julia Bessler: Perfil público | Classplay,/user/profile.php,1,1,6,3
+LLMS: Modelos de IA | Classplay,/mod/url/view.php,1,1,15,4
+Lista de eventos | Relatórios | Administração | Classplay,/report/eventlist/index.php,1,1,16,3
+Logs: Página 2 | Classplay,/report/log/index.php,1,1,13,3
+Luiza Abreu Lacerda: Perfil público | Classplay,/user/profile.php,1,1,7,3
+MINI-BASICOMKT-FREE: Participantes | Classplay,/user/index.php,1,1,12,3
+"MINI-BASICOMKT: Playlist: Introdução à IA generativa, casos de uso no marketing, ferramentas de texto e engenharia de prompts. | Classplay",/mod/resource/view.php,1,1,12,2
+MINI-DADOS: Da preparação de dados até os Insights | Classplay,/mod/resource/view.php,1,1,1,2
+MINI-DADOS: Técnicas Avançadas de Análise de Dados com ChatGPT | Classplay,/mod/resource/view.php,1,1,0,1
+MINI-IMAGEMVIDEO | Classplay,/enrol/index.php,1,1,2,3
+MINI-IMAGEMVIDEO: Slides: Imagens Generativas de IA | Classplay,/mod/resource/view.php,1,1,6,3
+MINI-IMAGEMVIDEO: Slides: Material sobre versionamento de conteúdo com Canva. | Classplay,/mod/resource/view.php,1,1,0,3
+Marcello Andrade: Blog | Classplay,/blog/index.php,1,1,1,3
+Marcello Andrade: Perfil público | Classplay,/user/profile.php,1,1,7,6
+Mariana Caldas: Perfil público | Classplay,/user/profile.php,1,1,5,3
+Moodle Docs | Aparência | Administração | Classplay,/admin/settings.php,1,1,4,3
+MundoAgents : Criando seu Assistente IA - Parte 1 | Classplay,/mod/resource/view.php,1,1,5,2
+MundoAgents : O Ecossistema de Agents da OpenAI | Classplay,/mod/resource/view.php,1,1,7,3
+MundoAgents : Participantes | Classplay,/user/index.php,1,1,2,2
+MundoAgents Freemium: O Ecossistema de Agents da OpenAI | Classplay,/mod/resource/view.php,1,1,4,3
+MundoAgents Freemium: Participantes | Classplay,/user/index.php,1,1,2,3
+MundoAgents | Classplay,/enrol/index.php,1,1,1,3
+MÓDULO 1 - Fundamentos e Engenharia de Prompts,/M-DULO-1-Fundamentos-e-Engenharia-de-Prompts-1cb5c644545481a68d82f0630e86e4d1,1,1,1,1
+MÓDULO 1 - Fundamentos e Impactos da IA Generativa no Direito,/turmas-templo/controle-templo/turma-dannemann-ia-law/mdulo-1-fundamentos-e-impactos-da-ia-generativa-no-direito,1,1,7,2
+MÓDULO 2 - Toolbox Generativo,/M-DULO-2-Toolbox-Generativo-1cb5c644545481088542ccb0ebd2d4ea,1,1,7,1
+MÓDULO 2 - Toolbox Generativo,/turmas-templo/controle-templo/turma-jbs-ia-mkt/mdulo-2-toolbox-generativo,1,1,4,1
+MÓDULO 2 - Toolbox Generativo,/turmas-templo/turma-iamkt1124-ab/mdulo-2-toolbox-generativo,1,1,5.5,3
+MÓDULO 2 - Técnicas e Ferramentas de IA Generativa para Advocacia,/turmas-templo/controle-templo/turma-dannemann-ia-law/mdulo-2-tcnicas-e-ferramentas-de-ia-generativa-para-advocacia,1,1,7,1
+MÓDULO 3 - Agentes Inteligentes e Workflows Automatizados,/turmas-templo/controle-templo/turma-vibra-ia-marketing/mdulo-3-agentes-inteligentes-e-workflows-automatizados,1,1,24,2
+MÓDULO 3 - Agentes de IA,/M-DULO-3-Agentes-de-IA-1cb5c6445454811c8b4dd581266c576a,1,1,1,1
+MÓDULO 3 - IA Generativa e Automação de Fluxos Jurídicos,/turmas-templo/controle-templo/turma-dannemann-ia-law/mdulo-3-ia-generativa-e-automao-de-fluxos-jurdicos,1,1,12,1
+MÓDULO 4 - Generative Mkt in Action,/M-DULO-4-Generative-Mkt-in-Action-1cb5c64454548187afbff5818879d9a3,1,1,46,2
+MÓDULO 4 - Generative Mkt in Action,/turmas-templo/controle-templo/turma-jbs-ia-mkt/mdulo-4-generative-mkt-in-action,1,1,20,2
+Módulo 1: Introdução à IA Generativa,/turmas-templo/controle-templo/turma-brasas-iaedu/mdulo-1-introduo-ia-generativa,1,1,4,1
+Naiara Botelho Jardim: Perfil público | Classplay,/user/profile.php,1,1,1,3
+Novo Arquivo | BRASASJOR.0925T1 | Classplay,/course/modedit.php,1,1,51,6
+Novo Arquivo | MundoAgents Freemium | Classplay,/course/modedit.php,1,1,14,4
+Novo Pacote SCORM | MINI.BRANDING-FREE | Classplay,/course/modedit.php,1,1,23,5
+Novo Pacote SCORM | TEMPLOTEM.0725T1 | Classplay,/course/modedit.php,1,1,62,4
+Novo URL | LLMS | Classplay,/course/modedit.php,1,1,29,4
+Novo Área de texto e mídia | IAG-MKTDigital | Classplay,/course/modedit.php,1,1,15,5
+Novo Área de texto e mídia | IAG-MKTDigital. Freemium | Classplay,/course/modedit.php,1,1,20,5
+Novo Área de texto e mídia | LLMS | Classplay,/course/modedit.php,1,1,0,3
+Novo Área de texto e mídia | OPMARKETING | Classplay,/course/modedit.php,1,1,1,4
+O que você deve saber?,/turmas-templo/controle-templo/wow-templo/o-que-voc-deve-saber,1,1,1,1
+Onboarding de Professores(as),/Onboarding-de-Professores-as-1d75c6445454809b8d3cce3ecd93f567,1,1,14,3
+PROMPTS | Classplay,/enrol/index.php,1,1,2,3
+Parte 1,/conteudo/cursos/introducao-iagen/parte-1,1,1,15,1
+Perfil dos Monges,/Perfil-dos-Monges-1755c64454548011bf71ca3252d76039,1,1,8,1
+Permissões em AI Agents: Agente Generativo | Classplay,/admin/roles/permissions.php,1,1,12,2
+Permissões em AI Prompts: Prompts | Classplay,/admin/roles/permissions.php,1,1,8,2
+Permissões em Arquivo: Workflow - Do Tom de Voz à Postagem | Classplay,/admin/roles/permissions.php,1,1,4,2
+Permissões em Curso: O Básico de IAGen no Marketing Digital | Classplay,/admin/roles/permissions.php,1,1,3,2
+Permissões em Curso: 🔒 O Mundo dos Agents | Classplay,/admin/roles/permissions.php,1,1,13,2
+Plugins overview | Plugins | Administration | Classplay,/admin/plugins.php,1,1,15,2
+Prompt Engineer,/automacao/agentes-prontos/prompt-engineer,1,1,5,2
+Prompts Jurídicos,/automacao-advogados/prompts-jurdicos,1,1,8,1
+Prompts | Classplay,/mod/aiprompts/area.php,1,1,8,3
+Prompts | Classplay,/mod/aiprompts/objective.php,1,1,6,3
+Registrar com o Moodle.org | Administração | Classplay,/admin/registration/index.php,1,1,2,3
+Relatório de notas | O Mundo dos Agentes | Classplay,/grade/report/grader/index.php,1,1,2,3
+Relatório de notas | 🔒 O Mundo dos Agents | Classplay,/grade/report/grader/index.php,1,1,1,3
+Relatório do usuário | Biblioteca de Agentes | Classplay,/grade/report/user/index.php,1,1,3,3
+Relatório do usuário | IA para Advogados | Classplay,/grade/report/user/index.php,1,1,4,3
+Relatório do usuário | Lápis Raro | Classplay,/grade/report/user/index.php,1,1,1,3
+Relatório do usuário | O Básico de IAGen no Marketing Digital | Classplay,/grade/report/user/index.php,1,1,8,3
+Relatório do usuário | Tutoriais de Ferramentas | Classplay,/grade/report/user/index.php,1,1,3,3
+Relatório do usuário | eBooks | Classplay,/grade/report/user/index.php,1,1,6,3
+Repositório de Conteúdos,/Reposit-rio-de-Conte-dos-1855c644545480aba833fe69c6bddc95,1,1,10,6
+Ricardo Antonio Camargos: Perfil público | Classplay,/user/profile.php,1,1,5,4
+Roteirista para Onboarding de Novos Colaboradores,/turmas-templo/controle-templo/automao-para-rh/prompts-para-recursos-humanos/engajamento-e-cultura-organizacional/roteirista-para-onboarding-de-novos-colaboradores,1,1,8,3
+Saullo Soares Santos: Perfil público | Classplay,/user/profile.php,1,1,1,3
+Seção: 2. Criando e Aperfeiçoando Agents | O Mundo dos Agentes | Classplay,/course/view.php,1,1,11,2
+Seção: Clique no botão para acessar o Claude! | Modelos de IA | Classplay,/course/view.php,1,1,2,3
+Seção: Clique no botão para acessar o Gemini! | Modelos de IA | Classplay,/course/view.php,1,1,3,4
+Seção: Clique no botão para acessar | Modelos de IA | Classplay,/course/view.php,1,1,2,2
+Seção: Como integrar IA generativa ao seu site | Freemium Simulado 2 | Classplay,/course/view.php,1,1,5,3
+Seção: MODULO 2 - Aula “Aprendizado de Máquina – Conceitos-chave” com miniatura e ícone de cadeado. | Freemium Simulado | Classplay,/course/view.php,1,1,4,3
+"Seção: Módulo 2 - Meta Prompts e Prompts Recursivos (COT, TOT) | Engenharia de Prompts | Classplay",/course/view.php,1,1,3,2
+Seção: Módulo 3 - Criação de Assistentes IA para Advogados | IA para Advogados | Classplay,/course/view.php,1,1,3,2
+Seção: Seção 3 | Modelos de IA | Classplay,/course/view.php,1,1,3,3
+"Seção: Tom, Estilo, Personas e System Roles em prompts | IA + Branding | Classplay",/course/view.php,1,1,3,2
+Seção: 🔒 Criando consistência de tom de voz e estilo para a sua marca com Custom Instructions | 🔒 IA + Branding | Classplay,/course/view.php,1,1,4,3
+Tech Interview Guru,/turmas-templo/controle-templo/automao-para-rh/lista-de-agentes-gpt-avanados/lista-de-agentes-gpt-avanados/tech-interview-guru,1,1,25,2
+Trabalhe Conosco,/turmas-templo/controle-templo/trabalhe-no-templo,1,1,5,1
+Treinador de Entrevistas Técnicas,/turmas-templo/controle-templo/automao-para-rh/lista-de-agentes-gpt-avanados/lista-de-agentes-gpt-avanados/treinador-de-entrevistas-tcnicas,1,1,6,2
+Turma Agência Global - IA + MKT,/turmas-templo/turma-iamkt1124-ab,1,1,3,1
+Turma FSB (A) - IA + RP,/turmas-templo/turma-iamkt1124-fs,1,1,22,4
+Turma FSB (C) - IA + RP,/turmas-templo/controle-templo/turma-fsb-c-ia-rp,1,1,9,2
+Turma JBS - IA + MKT,/Turma-JBS-IA-MKT-1cb5c64454548004a804db858b7891d6,1,1,2,1
+Turma Vibra - IA + Marketing,/turmas-templo/controle-templo/turma-vibra-ia-marketing,1,1,0,1
+Turmas Templo: Carregar cursos | Classplay,/admin/tool/uploadcourse/index.php,1,1,8,3
+Tutoriais de Ferramentas: Perfil pessoal: Matheus Mascarenhas Franchini de Oliveira | Classplay,/user/view.php,1,1,2,3
+Verificar permissões em Curso: Prompts | Classplay,/admin/roles/check.php,1,1,7,3
+Verificar permissões em Página principal | Classplay,/admin/roles/check.php,1,1,10,3
+Verificação de plugins | Classplay,/admin/index.php,1,1,1,2
+Vincenzo Freemium: Perfil público | Classplay,/user/profile.php,1,1,9,3
+Vincenzo Teste Freemium: Perfil público | Classplay,/user/profile.php,1,1,2,2
+Vitor Beira: Perfil público | Classplay,/user/profile.php,1,1,12,2
+Yuri Amorim: Perfil público | Classplay,/user/profile.php,1,1,5,3
+aaaaaaaaaaaaaaaaa | Classplay,/mod/aiprompts/view.php,1,1,5,3
+casos-uso: Relatório de atividade | Classplay,/report/log/user.php,1,1,9,3
+🔒 O Mundo dos Agents : Perfil pessoal: Vincenzo Teste Freemium | Classplay,/user/view.php,1,1,0,1
+Edição em massa do curso: O Mundo dos Agentes | Classplay,/course/view.php,0,1,7,1
+Edição em massa do curso: 🔒 IA + Branding | Classplay,/course/view.php,0,1,82,1
+Edição em massa do curso: 🔒 IA para Advogados | Classplay,/course/view.php,0,1,18,1
+Edição em massa do curso: 🔒 O Básico de IAGen no Marketing Digital | Classplay,/course/view.php,0,1,29,1
+Edição em massa do curso: 🔒 O Mundo dos Agents | Classplay,/course/view.php,0,1,35,1
+Edição em massa do curso: 🔒 Operações de Marketing | Classplay,/course/view.php,0,1,11,1
+
